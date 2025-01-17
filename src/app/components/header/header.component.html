@@ -1,10 +1,17 @@
-<header>
-    <nav>
-      <ul>
-        <li><a routerLink="/api-catalog" routerLinkActive="active">API Catalog</a></li>
-        <li><a routerLink="/getting-started" routerLinkActive="active">Getting Started</a></li>
-        <li><a routerLink="/support" routerLinkActive="active">Support</a></li>
-      </ul>
-      <a [href]="loginUrl" class="login-btn">Login</a>
-    </nav>
-  </header>
+<header class="main-header">
+  <nav>
+    <div class="logo">
+      <a [routerLink]="['/']" routerLinkActive="active">
+        <img src="assets/images/viettel-developers-logo.png" alt="Marketplace Logo">
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a class="nav-link" routerLink="/api-catalog" routerLinkActive="active">API Catalog</a></li>
+      <li><a class="nav-link" routerLink="/getting-started" routerLinkActive="active">Getting Started</a></li>
+      <li><a class="nav-link" routerLink="/support" routerLinkActive="active">Support</a></li>
+    </ul>
+    <div class="login">
+      <a href="#" class="login-btn">Login</a>
+    </div>
+  </nav>
+</header>

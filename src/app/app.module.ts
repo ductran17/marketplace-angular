@@ -13,18 +13,19 @@ import { routes } from './app.routes'; // Import routes
 
 @NgModule({
   declarations: [
-    HeaderComponent,
     HomeComponent,
-    ApiCatalogComponent
+    ApiCatalogComponent,
+    SupportComponent
   ],
   imports: [
+    HeaderComponent,
     AppComponent,
     BrowserModule,
     RouterModule.forRoot(routes),
     AppRoutingModule,
     FormsModule,
     GettingStartedComponent,
-    ReactiveFormsModule // Ensure this is imported
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: []
