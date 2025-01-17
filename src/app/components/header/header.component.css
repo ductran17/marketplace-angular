@@ -49,15 +49,32 @@ nav {
   border-bottom: 2px solid #007bff;
 }
 
-.login-btn {
-  background-color: #007bff;
+.header-buttons .btn {
+  background-color: #ef0032;
   color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  text-decoration: none;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px; /* Add space between the buttons */
+  border-radius: 5px; /* Optional: make the button edges rounded */
   transition: background-color 0.3s ease;
 }
 
-.login-btn:hover {
-  background-color: #0056b3;
+.header-buttons .btn:last-child {
+  margin-right: 0; /* Remove margin for the last button */
 }
+
+/* .login-btn {
+  background-color: #ef0032;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  margin-right: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+} */
+
+.header-buttons .btn:hover {
+  background-color: #c0022b;
+}
+
