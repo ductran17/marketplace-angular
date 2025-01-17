@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ApiCatalogComponent } from './pages/api-catalog/api-catalog.component';
 import { GettingStartedComponent } from './pages/getting-started/getting-started.component';
@@ -19,6 +20,7 @@ import { routes } from './app.routes'; // Import routes
   ],
   imports: [
     HeaderComponent,
+    FooterComponent,
     AppComponent,
     BrowserModule,
     RouterModule.forRoot(routes),
