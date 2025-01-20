@@ -7,3 +7,67 @@ body {
   * {
     box-sizing: border-box;
   }
+
+  /* styles.css */
+:root {
+  --primary-color: #ff0000;
+  --text-color: #333;
+  --border-color: #eee;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* API Card Grid */
+.api-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Button Styles */
+.button {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.button-primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.button-secondary {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* Navigation Styles */
+.nav-button {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.nav-button:hover {
+  background: var(--border-color);
+}

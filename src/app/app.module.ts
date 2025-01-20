@@ -12,6 +12,8 @@ import { SupportComponent } from './pages/support/support.component';
 import { RouterModule } from '@angular/router'; // Import RouterModule
 import { routes } from './app.routes';
 import { HomeSliderComponent } from "./components/home-slider/home-slider.component"; // Import routes
+import { ApiDetailComponent } from './components/api-detail/api-detail.component';
+import { ApiCardComponent } from './components/api-card/api-card.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { HomeSliderComponent } from "./components/home-slider/home-slider.compon
     FormsModule,
     GettingStartedComponent,
     ReactiveFormsModule,
-    HomeSliderComponent
+    HomeSliderComponent,
+    ApiDetailComponent,
+    ApiCardComponent
 ],
   providers: [],
   bootstrap: []

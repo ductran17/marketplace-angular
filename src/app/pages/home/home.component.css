@@ -1,0 +1,22 @@
+.featured-apis {
+    padding: 40px;
+}
+.api-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.api-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  overflow: hidden;
+}
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.prev { left: -20px; }
+.next { right: -20px; }

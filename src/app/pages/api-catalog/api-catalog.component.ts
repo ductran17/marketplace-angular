@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class ApiCatalogComponent {
   apis = [
-    { name: 'API 1', description: 'Description 1', image: 'assets/images/api1.jpg' },
-    { name: 'API 2', description: 'Description 2', image: 'assets/images/api2.jpg' }
+    { name: 'Device Location', description: 'Prevent fraud with real-time location verification.', image: 'assets/images/icon/api/device-location.png' },
+    { name: 'Quality on Demand', description: 'Ensure optimum connectivity for your applications', image: 'assets/images/icon/api/quality-on-demand.png' }
   ];
 }
