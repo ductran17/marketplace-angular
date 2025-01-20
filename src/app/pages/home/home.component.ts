@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  title = 'Welcome to Our Platform';
-  description = 'Discover our comprehensive API solutions';
+  // title = 'Welcome to Our Platform';
+  // description = 'Discover our comprehensive API solutions';
 }

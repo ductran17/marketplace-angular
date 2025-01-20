@@ -1,0 +1,28 @@
+<!-- home-slider.component.html -->
+<div class="slider-container">
+    <div class="slides" [style.transform]="'translateX(-' + currentSlide * 100 + '%)'">
+      <div class="slide" *ngFor="let slide of slides">
+        <img [src]="slide.url" [alt]="slide.title" (error)="handleImageError($event)">
+        <div class="slide-content">
+          <!-- <h2>{{ slide.title }}</h2> -->
+        </div>
+      </div>
+    </div>
+    
+    <button class="nav-button prev" (click)="prevSlide()">
+      <span>&lt;</span>
+    </button>
+    
+    <button class="nav-button next" (click)="nextSlide()">
+      <span>&gt;</span>
+    </button>
+    
+    <div class="dots">
+      <span 
+        *ngFor="let slide of slides; let i = index" 
+        class="dot"
+        [class.active]="i === currentSlide"
+        (click)="goToSlide(i)">
+      </span>
+    </div>
+  </div>

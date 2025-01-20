@@ -10,7 +10,8 @@ import { ApiCatalogComponent } from './pages/api-catalog/api-catalog.component';
 import { GettingStartedComponent } from './pages/getting-started/getting-started.component';
 import { SupportComponent } from './pages/support/support.component';
 import { RouterModule } from '@angular/router'; // Import RouterModule
-import { routes } from './app.routes'; // Import routes
+import { routes } from './app.routes';
+import { HomeSliderComponent } from "./components/home-slider/home-slider.component"; // Import routes
 
 @NgModule({
   declarations: [
@@ -27,8 +28,9 @@ import { routes } from './app.routes'; // Import routes
     AppRoutingModule,
     FormsModule,
     GettingStartedComponent,
-    ReactiveFormsModule
-  ],
+    ReactiveFormsModule,
+    HomeSliderComponent
+],
   providers: [],
   bootstrap: []
 })
