@@ -5,4 +5,8 @@ export interface Api {
     icon: string;
     tryItFreeLink: string;
     learnMoreLink: string;
+    definition: string;
+    useCases: string;
+    caseStudies: string;
+    documentation: string;
   }
