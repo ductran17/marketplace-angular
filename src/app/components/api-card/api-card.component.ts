@@ -14,37 +14,7 @@ import { Api } from '../../models/api.interface';
         <a [href]="api.learnMoreLink" class="learn-more">Learn more</a>
       </div>
     </div>
-  `,
-  styles: [`
-    .api-card {
-      background: white;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-    }
-    .api-card:hover {
-      transform: translateY(-5px);
-    }
-    .buttons {
-      display: flex;
-      gap: 10px;
-      margin-top: 15px;
-    }
-    .try-free, .learn-more {
-      padding: 8px 16px;
-      border-radius: 4px;
-      text-decoration: none;
-    }
-    .try-free {
-      background: #ff0000;
-      color: white;
-    }
-    .learn-more {
-      border: 1px solid #ff0000;
-      color: #ff0000;
-    }
-  `]
+  `,styleUrls: ['./api-card.component.css']
 })
 export class ApiCardComponent {
   @Input() api!: Api;

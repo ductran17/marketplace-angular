@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../../services/api.service'; // Ensure you import the ApiService
+import { Api } from '../../models/api.interface';
 
 @Component({
   selector: 'app-api-catalog',
@@ -6,8 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./api-catalog.component.css']
 })
 export class ApiCatalogComponent {
-  apis = [
-    { name: 'Device Location', description: 'Prevent fraud with real-time location verification.', image: 'assets/images/icon/api/device-location.png' },
-    { name: 'Quality on Demand', description: 'Ensure optimum connectivity for your applications', image: 'assets/images/icon/api/quality-on-demand.png' }
-  ];
+  apis: Api[] = []; // Ensure this is defined
+
+  constructor(private apiService: ApiService) {}
+
+  ngOnInit() {
+    this.apis = this.apiService.getAllApis(); // Ensure this method retrieves all APIs
+  }
 }
