@@ -4,6 +4,6 @@
     <p>{{api.description}}</p>
     <div class="buttons">
       <a [href]="api.tryItFreeLink" class="try-free">Try it for free</a>
-      <a [href]="api.learnMoreLink" class="learn-more">Learn more</a>
+      <a [routerLink]="['/apis', api.id]" class="learn-more">Learn more</a>
     </div>
   </div>

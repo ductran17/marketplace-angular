@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../../services/api.service'; // Ensure you import the ApiService
-import { Api } from '../../models/api.interface';
+import { Api } from '../../models/api.model';
 
 @Component({
   selector: 'app-api-catalog',

@@ -1,88 +1,108 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../services/api.service';
-import { Api } from '../../models/api.interface'
+import { Api } from '../../models/api.model'
 import { CommonModule } from '@angular/common';
+import SwaggerUI from 'swagger-ui';
+import { marked } from 'marked';
 
-// @Component({
-//   selector: 'app-api-detail',
-//   standalone: true,
-//   imports: [],
-//   templateUrl: './api-detail.component.html',
-//   styleUrl: './api-detail.component.css'
-// })
-// export class ApiDetailComponent {
+interface TabItem {
+  id: string;
+  title: string;
+  section: ContentSection[];
+}
 
-// }
+interface TableOfContent {
+  id: string;
+  title: string;
+  target: string;
+}
+
+interface ContentSection {
+  id: string;
+  title: string;
+  content: string;
+  type: 'text' | 'code' | 'swagger';
+}
 
 @Component({
   selector: 'app-api-detail',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <div class="api-detail-container">
-      <nav class="left-nav">
-        <ul>
-          <li [class.active]="activeTab === 'overview'" (click)="setActiveTab('overview')">Overview</li>
-          <li [class.active]="activeTab === 'documentation'" (click)="setActiveTab('documentation')">Documentation</li>
-          <li [class.active]="activeTab === 'sandbox'" (click)="setActiveTab('sandbox')">Sandbox</li>
-          <li [class.active]="activeTab === 'terms'" (click)="setActiveTab('terms')">Terms and Conditions</li>
-          <li [class.active]="activeTab === 'contact'" (click)="setActiveTab('contact')">Contact us</li>
-        </ul>
-      </nav>
-      
-      <main class="content">
-        <ng-container [ngSwitch]="activeTab">
-          <div *ngSwitchCase="'overview'">
-            <!-- Overview content -->
-          </div>
-          <div *ngSwitchCase="'documentation'">
-            <!-- Documentation content -->
-          </div>
-          <!-- Other tab contents -->
-        </ng-container>
-      </main>
-
-      <nav class="right-nav">
-        <div class="table-of-contents">
-          <!-- Dynamic table of contents based on active tab -->
-        </div>
-      </nav>
-    </div>
-  `,
-  styles: [`
-    .api-detail-container {
-      display: grid;
-      grid-template-columns: 250px 1fr 250px;
-      min-height: 100vh;
-    }
-    .left-nav {
-      padding: 20px;
-      border-right: 1px solid #eee;
-    }
-    .right-nav {
-      padding: 20px;
-      border-left: 1px solid #eee;
-    }
-    .content {
-      padding: 20px;
-    }
-    .left-nav ul {
-      list-style: none;
-      padding: 0;
-    }
-    .left-nav li {
-      padding: 10px;
-      cursor: pointer;
-    }
-    .left-nav li.active {
-      background: #f0f0f0;
-      border-radius: 4px;
-    }
-  `]
+  templateUrl: './api-detail.component.html',
+  styleUrls: ['./api-detail.component.css']
 })
+
 export class ApiDetailComponent implements OnInit {
-  activeTab = 'overview';
+  tabs: TabItem[] = [
+    { id: 'overview', 
+      title: 'Overview', 
+      section: [
+        {
+          id: 'overview-main',
+          title: 'Overview',
+          content: 'General overview content goes here',
+          type: 'text'
+        }
+      ]
+      },
+    { id: 'documentation', 
+      title: 'Documentation', 
+      section: [
+        {
+          id: 'introduction',
+          title: 'Introduction',
+          content: 'The CAMARA Device Location Verification API provides a standardized mechanism for checking mobile equipment geographic location...',
+          type: 'text'
+        },
+        {
+          id: 'how-it-works',
+          title: 'How it works',
+          content: 'Following figure provides a high-level view of the API architecture:',
+          type: 'text'
+        },
+        {
+          id: 'api-authentication',
+          title: 'API Authentication',
+          content: 'The Device Location Verification API will require a 3-Legged OAuth 2.0',
+          type: 'text'
+        }
+      ] },
+    { id: 'sandbox', 
+      title: 'Sandbox', 
+      section: [
+        {
+          id: 'sandbox-main',
+          title: 'Sandbox',
+          content: 'Sandbox content goes here',
+          type: 'text'
+        }
+      ] },
+    { id: 'terms', 
+      title: 'Terms and Conditions', 
+      section: [
+        {
+          id: 'terms-main',
+          title: 'Terms and Conditions',
+          content: 'Terms and conditions content goes here',
+          type: 'text'
+        }
+      ] },
+    { id: 'contact', 
+      title: 'Contact Us', 
+      section: [
+        {
+          id: 'contact-main',
+          title: 'Contact Us',
+          content: 'Contact information goes here',
+          type: 'text'
+        }
+      ] }
+  ];
+  tableOfContents: TableOfContent[] = [];
+  activeTab: string = 'overview';
+  activeSection = '';
+  showTableOfContents: boolean = true;
   api: Api | undefined;
 
   constructor(
@@ -91,13 +111,63 @@ export class ApiDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.updateTableOfContents();
     const apiId = this.route.snapshot.paramMap.get('id');
     if (apiId) {
       this.api = this.apiService.getApiById(apiId);
     }
   }
 
-  setActiveTab(tab: string) {
-    this.activeTab = tab;
+  setActiveTab(tabId: string) {
+    this.activeTab = tabId;
+    this.activeSection = '';
+    // Reset scroll position when changing tabs
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
+    this.updateTableOfContents();
+  }
+
+  getTabContent(tabId: string): ContentSection[] {
+    const currentTab = this.tabs.find(tab => tab.id === this.activeTab);
+    return currentTab ? currentTab.section : [];
+  }
+
+  updateTableOfContents() {
+    // Update table of contents based on active tab
+    switch (this.activeTab) {
+      case 'overview':
+        this.tableOfContents = [
+          { id: 'definition', title: 'Definition', target: 'definition' },
+          { id: 'use', title: 'What can it be used for ?', target: 'use' },
+          { id: 'useCase', title: 'Use Case', target: 'usecase' }
+        ];
+        break;
+      case 'documentation':
+        this.tableOfContents = [
+          { id: 'intro', title: 'Introduction', target: 'intro' },
+          { id: 'auth', title: 'Authentication', target: 'auth' },
+          { id: 'endpoints', title: 'Endpoints', target: 'endpoints' }
+        ];
+        break;
+        case 'sandbox':
+          this.tableOfContents = [
+            { id: 'intro', title: 'Introduction', target: 'intro' },
+            { id: 'auth', title: 'Authentication', target: 'auth' },
+            { id: 'endpoints', title: 'Endpoints', target: 'endpoints' }
+          ];
+          break;
+      // Add cases for other tabs as needed
+      default:
+        this.tableOfContents = [];
+    }
+    this.showTableOfContents = this.tableOfContents.length > 0;
+  }
+
+  scrollToSection(target: string) {
+    const element = document.getElementById(target);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 }
