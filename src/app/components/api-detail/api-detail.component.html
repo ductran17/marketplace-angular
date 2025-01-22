@@ -1,1 +1,60 @@
-<p>api-detail works!</p>
+<!-- <div class="page-wrapper"> -->
+<div class="api-detail-container">
+  <nav class="nav-sidebar">
+    <ul class="nav-list">
+      <li *ngFor="let tab of tabs" 
+          [class.active]="activeTab === tab.id"
+          (click)="setActiveTab(tab.id)">
+        {{ tab.title }}
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="content-wrapper" [ngSwitch]="activeTab">
+      <div *ngSwitchCase="'overview'" class="content-section">
+        <h2>Overview</h2>
+        <div [innerHTML]="getTabContent('overview')"></div>
+      </div>
+      
+      <div *ngSwitchCase="'documentation'" class="content-section">
+        <h2>Documentation</h2>
+        <div class="api-docs">
+          <div [innerHTML]="getTabContent('documentation')"></div>
+          <!-- Swagger/OpenAPI content will be rendered here -->
+          <div class="swagger-section">
+            <!-- Add your Swagger UI component here -->
+          </div>
+        </div>
+      </div>
+
+      <div *ngSwitchCase="'sandbox'" class="content-section">
+        <h2>Sandbox</h2>
+        <div [innerHTML]="getTabContent('sandbox')"></div>
+      </div>
+
+      <div *ngSwitchCase="'terms'" class="content-section">
+        <h2>Terms and Conditions</h2>
+        <div [innerHTML]="getTabContent('terms')"></div>
+      </div>
+
+      <div *ngSwitchCase="'contact'" class="content-section">
+        <h2>Contact Us</h2>
+        <div [innerHTML]="getTabContent('contact')"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Table of Contents -->
+  <aside class="table-of-contents" *ngIf="showTableOfContents">
+    <h3>Table of Contents</h3>
+    <ul>
+      <li *ngFor="let item of tableOfContents"
+          (click)="scrollToSection(item.target)">
+        {{ item.title }}
+      </li>
+    </ul>
+  </aside>
+</div>
+<!-- </div> -->

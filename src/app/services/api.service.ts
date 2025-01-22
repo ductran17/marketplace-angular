@@ -12,7 +12,11 @@ export class ApiService {
       description: 'Prevent fraud with real-time location verification.',
       icon: 'assets/images/icon/api/device-location.png',
       tryItFreeLink: '#',
-      learnMoreLink: '#'
+      learnMoreLink: '#',
+      definition: '',
+      useCases: '',
+      caseStudies: '',
+      documentation: ''
     },
     {
       id: 'quality-on-demand',
@@ -20,7 +24,11 @@ export class ApiService {
       description: 'Ensure optimum connectivity for your applications',
       icon: 'assets/images/icon/api/quality-on-demand.png',
       tryItFreeLink: '#',
-      learnMoreLink: '#'
+      learnMoreLink: '#',
+      definition: '',
+      useCases: '',
+      caseStudies: '',
+      documentation: ''
     },
     {
       id: 'device-reachability-status',
@@ -28,7 +36,11 @@ export class ApiService {
       description: 'Provide SMS and data connectivity status of an user',
       icon: 'assets/images/icon/api/device-reach.png',
       tryItFreeLink: '#',
-      learnMoreLink: '#'
+      learnMoreLink: '#',
+      definition: '',
+      useCases: '',
+      caseStudies: '',
+      documentation: ''
     },
     {
       id: 'number-verification',
@@ -36,7 +48,11 @@ export class ApiService {
       description: 'Verify phone numbers to enhance user authentication processes.',
       icon: 'assets/images/icon/api/number-verification.png',
       tryItFreeLink: '#',
-      learnMoreLink: '#'
+      learnMoreLink: '#',
+      definition: '',
+      useCases: '',
+      caseStudies: '',
+      documentation: ''
     },
     {
       id: 'sim-swap',
@@ -44,7 +60,11 @@ export class ApiService {
       description: 'Check real-time SIM card activation to enhance security and prevent fraud ',
       icon: 'assets/images/icon/api/sim-swap.png',
       tryItFreeLink: '#',
-      learnMoreLink: '#'
+      learnMoreLink: '#',
+      definition: '',
+      useCases: '',
+      caseStudies: '',
+      documentation: ''
     },
     // Add more APIs...
   ];
