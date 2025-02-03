@@ -5,11 +5,12 @@ import { Api } from '../../models/api.model'
 import { CommonModule } from '@angular/common';
 import SwaggerUI from 'swagger-ui';
 import { marked } from 'marked';
+import * as ApiModels from '../../models';
 
 interface TabItem {
   id: string;
   title: string;
-  section: ContentSection[];
+  section?: string;
 }
 
 interface TableOfContent {
@@ -35,70 +36,27 @@ interface ContentSection {
 
 export class ApiDetailComponent implements OnInit {
   tabs: TabItem[] = [
-    { id: 'overview', 
-      title: 'Overview', 
-      section: [
-        {
-          id: 'overview-main',
-          title: 'Overview',
-          content: 'General overview content goes here',
-          type: 'text'
-        }
-      ]
-      },
-    { id: 'documentation', 
-      title: 'Documentation', 
-      section: [
-        {
-          id: 'introduction',
-          title: 'Introduction',
-          content: 'The CAMARA Device Location Verification API provides a standardized mechanism for checking mobile equipment geographic location...',
-          type: 'text'
-        },
-        {
-          id: 'how-it-works',
-          title: 'How it works',
-          content: 'Following figure provides a high-level view of the API architecture:',
-          type: 'text'
-        },
-        {
-          id: 'api-authentication',
-          title: 'API Authentication',
-          content: 'The Device Location Verification API will require a 3-Legged OAuth 2.0',
-          type: 'text'
-        }
-      ] },
-    { id: 'sandbox', 
-      title: 'Sandbox', 
-      section: [
-        {
-          id: 'sandbox-main',
-          title: 'Sandbox',
-          content: 'Sandbox content goes here',
-          type: 'text'
-        }
-      ] },
-    { id: 'terms', 
-      title: 'Terms and Conditions', 
-      section: [
-        {
-          id: 'terms-main',
-          title: 'Terms and Conditions',
-          content: 'Terms and conditions content goes here',
-          type: 'text'
-        }
-      ] },
-    { id: 'contact', 
-      title: 'Contact Us', 
-      section: [
-        {
-          id: 'contact-main',
-          title: 'Contact Us',
-          content: 'Contact information goes here',
-          type: 'text'
-        }
-      ] }
-  ];
+    {
+      id: 'overview', 
+      title: 'Overview'
+    },
+    {
+      id: 'documentation', 
+      title: 'Documentation'
+    },
+    {
+      id: 'sandbox', 
+      title: 'Sandbox'
+    },
+    {
+      id: 'terms', 
+      title: 'Terms and Conditions'
+    },
+    {
+      id: 'contact', 
+      title: 'Contact Us'
+    }]
+  
   tableOfContents: TableOfContent[] = [];
   activeTab: string = 'overview';
   activeSection = '';
@@ -128,9 +86,21 @@ export class ApiDetailComponent implements OnInit {
     this.updateTableOfContents();
   }
 
-  getTabContent(tabId: string): ContentSection[] {
-    const currentTab = this.tabs.find(tab => tab.id === this.activeTab);
-    return currentTab ? currentTab.section : [];
+  getTabContent(tabId: string) {
+    if (tabId === 'overview' && this.api?.overview) { // Use ?. to prevent errors
+      let htmlContent = '';
+      for (const section in this.api.overview) {
+        if (this.api.overview.hasOwnProperty(section)) {
+          const sectionData = this.api.overview[section];
+          htmlContent += `
+            <h3>${sectionData.title}</h3>
+            <p>${sectionData.content}</p>
+          `;
+        }
+      }
+      return htmlContent; // Return the generated HTML
+    }
+    return '<p>No content available for this tab.</p>';
   }
 
   updateTableOfContents() {
