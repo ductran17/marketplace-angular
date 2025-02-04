@@ -1,5 +1,5 @@
-<!-- <div class="page-wrapper"> -->
 <div class="api-detail-container">
+  <!-- Left Sidebar -->
   <nav class="nav-sidebar">
     <ul class="nav-list">
       <li *ngFor="let tab of tabs" 
@@ -29,7 +29,7 @@
         </div>
       </div>
 
-      <div *ngSwitchCase="'sandbox'" class="content-section">
+      <div *ngSwitchCase="'sandbox'" class="content-section"> 
         <h2>Sandbox</h2>
         <div [innerHTML]="getTabContent('sandbox')"></div>
       </div>
@@ -57,4 +57,3 @@
     </ul>
   </aside>
 </div>
-<!-- </div> -->

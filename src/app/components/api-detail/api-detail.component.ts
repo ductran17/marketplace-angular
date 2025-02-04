@@ -93,8 +93,10 @@ export class ApiDetailComponent implements OnInit {
         if (this.api.overview.hasOwnProperty(section)) {
           const sectionData = this.api.overview[section];
           htmlContent += `
+            <div class=${section}>
             <h3>${sectionData.title}</h3>
             <p>${sectionData.content}</p>
+            </div>
           `;
         }
       }

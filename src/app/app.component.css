@@ -12,7 +12,7 @@ html, body {
 .content {
   margin-top: 80px; /* Account for fixed header */
   padding: 2rem;
-  max-width: 1200px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   flex: 1; /* Allow the main content to grow and take up remaining space */
@@ -21,4 +21,15 @@ html, body {
 footer {
   background-color: #f8f8f8; /* Optional styling */
   padding: 20px; /* Optional styling */
+}
+
+@media (max-width: 768px) {
+  .content {
+    margin-top: 120px; /* Account for fixed header */
+    padding: 0;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    flex: 1; /* Allow the main content to grow and take up remaining space */
+  }
 }

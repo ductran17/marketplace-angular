@@ -10,8 +10,8 @@ export const DEVICE_LOCATION_API: Api={
     learnMoreLink: '#',
     overview: {
         definition: {
-            title: "definition",
-            content: `The standardised Device Location Verification API provides the option of  verifying the geographical location of a given SIM-based device and  validating whether it’s within a requested geographical area without  spoofing or GPS theft.
+            title: "Definition",
+            content: `The standardised Device Location Verification API provides the option of verifying the geographical location of a given SIM-based device and validating whether it’s within a requested geographical area without  spoofing or GPS theft.
             \n This solution validates the location of a device to enable services or allow transactions by verifying the location.`
         },
         useFor: {

@@ -23,6 +23,7 @@ export interface ApiOverview{
     title: string;
     content: ApiSection[];
   }
+  [key: string]: ApiSection | { title: string; content: ApiSection[] }; // Added index signature
 }
 
 export interface ApiDocumentation{
