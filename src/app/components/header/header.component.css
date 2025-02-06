@@ -15,12 +15,12 @@
   width: 100%;
   padding: 5px 5px;
   z-index: 20;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
 }
 
 .header-buttons{
   padding: 5px 5px;
-  z-index: 20;
+  /* z-index: 20; */
 }
 
 nav {
@@ -69,12 +69,12 @@ nav {
 }
 
 .nav-links ul li a:hover {
-  color: #007bff;
+  color: #ef0032;
 }
 
 .nav-links ul li a.active {
-  color: #007bff;
-  border-bottom: 2px solid #007bff;
+  color: #ef0032;
+  border-bottom: 2px solid #ef0032;
 }
 
 .header-buttons .btn {
@@ -88,17 +88,18 @@ nav {
   border-radius: 5px;
   /* Optional: make the button edges rounded */
   transition: background-color 0.3s ease;
-  z-index: 20;
+  /* z-index: 20; */
 }
 
 .header-buttons .btn:last-child {
   margin-right: 0;
   /* Remove margin for the last button */
-  z-index: 20;
+  /* z-index: 20; */
 }
 
 .menu-icon {
   display: none;
+  z-index: 20; 
 }
 
 /* .login-btn {
@@ -113,30 +114,39 @@ nav {
 
 .header-buttons .btn:hover {
   background-color: #c0022b;
-  z-index: 20;
+  /* z-index: 20; */
 }
 
-@media screen and (min-width: 128px) and (max-width: 900px) {
+@media screen and (max-width: 900px) {
   .main-header .logo img {
     max-width: 100px; /* Smaller logo size */
-    z-index: 20;
+    /* z-index: 20; */
   }
 
   .main-header .header-buttons .btn {
     padding: 5px 10px; /* Smaller button size */
     font-size: 14px;   /* Adjust font size */
-    z-index: 20;
+    /* z-index: 20; */
   }
 
   .nav-links {
     position: fixed !important;
     transition: 0.4s ease-in-out;
-    top: -100%;
-    background: #c0022b;
-    width: 180px;
+    left: -40%;
+    background: #ffffff;
+    width: 40%;
     height: 100%;
     z-index: 10;
-    left: 100px;
+    align-items: flex-start;
+    margin-top: 50px;
+  }
+
+  .nav-links ul {
+    display: block; /* This makes the <ul> elements stack vertically */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;  /* Optional: adjust the width as needed */
   }
 
   .nav-links ul li {
@@ -144,25 +154,62 @@ nav {
     text-align: left;
     margin: 0;
     padding: 10px 0 10px 26px;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid rgb(255, 255, 255);
     z-index: 10;
+  }
+
+  .nav-links ul li a{
+    color: rgb(0, 0, 0);
+  }
+
+  .nav-links ul li a:hover {
+    color: #ef0032;
+  }
+  
+  .nav-links ul li a.active {
+    color: #ef0032;
+    border-bottom: 2px solid #ef0032;
+  }
+
+  .navigation-tabs{
+    display: block;
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  .header-container {
+    display: flex;
+    position: fixed;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    /* width: 100%; */
+    /* padding: 5px 5px; */
+    /* z-index: 20; */
+    /* background-color: #ffffff; */
   }
 
   .menu-icon {
     display: block;
+    position: relative;
     color: rgb(0, 0, 0);
-    font-size: 40px;
-    padding-top: 10px;
-    z-index: 20;
+    /* padding-top: 10px; */
+    z-index: 50 !important;
+    min-width: 10px;
+    min-height: 10px;
+  }
+
+  .menu-icon i{
+    position: relative;
+    z-index: 50 !important;
+    font-size: 30px;
+    min-width: 10px;
+    min-height: 10px;
   }
 
   .mobile_menu {
-    top: 0;
+    left: 0;
     transition: 0.4s ease-in-out;
-    z-index: 10;
-  }
-
-  .navigation-tabs{
     z-index: 10;
   }
 }
