@@ -11,6 +11,8 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   overflow: hidden;
+  min-height: 400;
+  padding: 10px 10px;
 }
 .nav-button {
   position: absolute;
@@ -20,3 +22,25 @@
 }
 .prev { left: -20px; }
 .next { right: -20px; }
+
+.view-all{
+  color: black;
+}
+
+@media screen and (max-width: 900px) {
+  .api-container {
+    grid-template-columns: repeat(2, 1fr);  /* Changes to 2 columns */
+    min-height: 300;
+    padding: 15px 15px;
+  }
+}
+
+/* For mobile phones */
+@media screen and (max-width: 600px) {
+  .api-container {
+    grid-template-columns: 1fr;  /* Changes to 1 column */
+    min-height: 200;
+    padding: 15px 15px;
+  }
+}
+
