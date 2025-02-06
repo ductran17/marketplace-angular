@@ -1,18 +1,27 @@
 <header class="main-header">
-  <nav>
-    <div class="logo">
-      <a routerLink='/' routerLinkActive="active">
-        <img src="assets/images/viettel-developers-logo.png" alt="Marketplace Logo">
-      </a>
+  <div class="header-container">
+    <div class="col-md-3 col-sm-3 col-3">
+      <div class="logo">
+        <a routerLink='/' routerLinkActive="active">
+          <img src="assets/images/viettel-developers-logo.png" alt="Marketplace Logo">
+        </a>
+      </div>
     </div>
-    <ul class="nav-links">
-      <li><a class="nav-link" routerLink="/apis" routerLinkActive="active">API Catalog</a></li>
-      <li><a class="nav-link" routerLink="/getting-started" routerLinkActive="active">Getting Started</a></li>
-      <li><a class="nav-link" routerLink="/support" routerLinkActive="active">Support</a></li>
-    </ul>
+    <div class="col-md-9 col-sm-9 col-9 text-end">
+      <div class="menu-icon" (click)="openMenu()">
+        <i class="{{menu_icon}}"></i>
+      </div>
+      <nav class="nav-links" [class.mobile_menu]="menuValue">
+        <ul>
+          <li><a class="nav-link" routerLink="/apis" routerLinkActive="active">API Catalog</a></li>
+          <li><a class="nav-link" routerLink="/getting-started" routerLinkActive="active">Getting Started</a></li>
+          <li><a class="nav-link" routerLink="/support" routerLinkActive="active">Support</a></li>
+        </ul>
+      </nav>
+    </div>
     <div class="header-buttons">
       <button class="btn">Sign Up</button>
       <button class="btn">Login</button>
     </div>
-  </nav>
+  </div>
 </header>
