@@ -30,7 +30,7 @@
 @media screen and (max-width: 900px) {
   .api-container {
     grid-template-columns: repeat(2, 1fr);  /* Changes to 2 columns */
-    min-height: 300;
+    min-height: 200;
     padding: 15px 15px;
   }
 }
