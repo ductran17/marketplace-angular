@@ -1,0 +1,24 @@
+<header class="main-header">
+  <nav>
+    <div class="logo">
+      <a routerLink='/' routerLinkActive="active">
+        <img src="assets/images/viettel-developers-logo.png" alt="Marketplace Logo">
+      </a>
+    </div>
+    
+    <div class="menu-icon" (click)="openMenu()">
+      <i class="{{menu_icon}}"></i>
+    </div>
+    <div class="nav-links" [class.mobile_menu]="menuValue">
+      <ul>
+        <li (click)="closeMenu()"><a class="nav-link" routerLink="/apis" routerLinkActive="active">API Catalog</a></li>
+        <li (click)="closeMenu()"><a class="nav-link" routerLink="/getting-started" routerLinkActive="active">Getting Started</a></li>
+        <li (click)="closeMenu()"><a class="nav-link" routerLink="/support" routerLinkActive="active">Support</a></li>
+      </ul>
+    </div>
+    <div class="header-buttons">
+      <button class="btn">Sign Up</button>
+      <button class="btn">Login</button>
+    </div>
+  </nav>
+</header>
