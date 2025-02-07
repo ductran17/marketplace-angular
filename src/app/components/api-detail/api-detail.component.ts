@@ -91,13 +91,39 @@ export class ApiDetailComponent implements OnInit {
       let htmlContent = '';
       for (const section in this.api.overview) {
         if (this.api.overview.hasOwnProperty(section)) {
+          if (section == "definition" || section =="useFor"){
           const sectionData = this.api.overview[section];
           htmlContent += `
-            <div class=${section}>
+            <div [class]="section">
             <h3>${sectionData.title}</h3>
             <p>${sectionData.content}</p>
             </div>
           `;
+          }
+          else if(section=="useCases" || section=="caseStudies"){
+            htmlContent +=`
+            <div [class]="section">
+              <h3>${this.api.overview[section]["title"]}</h3>
+              `;
+            for (const sectionData of this.api.overview[section]["content"]){
+              htmlContent +=`
+              <div class="banner">
+                <div class="banner-title">
+                  <h4>${sectionData["title"]}</h4>
+                </div>
+                <div class="banner-content">
+                  <div class="banner-content-text">
+                    <p>${sectionData["content"]}</p>
+                  </div>
+                  <div class="banner-content-img">
+                    <img src=${sectionData["image"]}>
+                  </div>
+                </div>
+              </div>
+              `;
+            }
+            htmlContent +=`</div>`;
+          }
         }
       }
       return htmlContent; // Return the generated HTML
