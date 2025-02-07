@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import SwaggerUI from 'swagger-ui';
 import { marked } from 'marked';
 import * as ApiModels from '../../models';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 interface TabItem {
   id: string;
@@ -65,7 +66,8 @@ export class ApiDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit() {
@@ -86,7 +88,7 @@ export class ApiDetailComponent implements OnInit {
     this.updateTableOfContents();
   }
 
-  getTabContent(tabId: string) {
+  getTabContent(tabId: string): SafeHtml {
     if (tabId === 'overview' && this.api?.overview) { // Use ?. to prevent errors
       let htmlContent = '';
       for (const section in this.api.overview) {
@@ -94,7 +96,7 @@ export class ApiDetailComponent implements OnInit {
           if (section == "definition" || section =="useFor"){
           const sectionData = this.api.overview[section];
           htmlContent += `
-            <div class="api-section">
+            <div class="api-section" id="${section}">
             <h3>${sectionData.title}</h3>
             <p>${sectionData.content}</p>
             </div>
@@ -102,7 +104,7 @@ export class ApiDetailComponent implements OnInit {
           }
           else if(section=="useCases" || section=="caseStudies"){
             htmlContent +=`
-            <div class="api-section">
+            <div class="api-section" id="${section}">
               <h3>${this.api.overview[section]["title"]}</h3>
               `;
             for (const sectionData of this.api.overview[section]["content"]){
@@ -126,38 +128,22 @@ export class ApiDetailComponent implements OnInit {
           }
         }
       }
-      return htmlContent; // Return the generated HTML
+      return this.sanitizer.bypassSecurityTrustHtml(htmlContent); // Return the generated HTML
     }
-    return '<p>No content available for this tab.</p>';
+    return this.sanitizer.bypassSecurityTrustHtml('<p>No content available for this tab.</p>');
   }
 
   updateTableOfContents() {
-    // Update table of contents based on active tab
-    switch (this.activeTab) {
-      case 'overview':
-        this.tableOfContents = [
-          { id: 'definition', title: 'Definition', target: 'definition' },
-          { id: 'use', title: 'What can it be used for ?', target: 'use' },
-          { id: 'useCase', title: 'Use Case', target: 'usecase' }
-        ];
-        break;
-      case 'documentation':
-        this.tableOfContents = [
-          { id: 'intro', title: 'Introduction', target: 'intro' },
-          { id: 'auth', title: 'Authentication', target: 'auth' },
-          { id: 'endpoints', title: 'Endpoints', target: 'endpoints' }
-        ];
-        break;
-        case 'sandbox':
-          this.tableOfContents = [
-            { id: 'intro', title: 'Introduction', target: 'intro' },
-            { id: 'auth', title: 'Authentication', target: 'auth' },
-            { id: 'endpoints', title: 'Endpoints', target: 'endpoints' }
-          ];
-          break;
-      // Add cases for other tabs as needed
-      default:
-        this.tableOfContents = [];
+    const activeTabContent = this.api?.[this.activeTab as keyof Api];
+    if (activeTabContent && typeof activeTabContent === 'object') {
+      this.tableOfContents = Object.entries(activeTabContent as Record<string, { title: string }>)
+        .map(([key, value]) => ({
+          id: key,
+          title: value.title,
+          target: key
+        }));
+    } else {
+      this.tableOfContents = [];
     }
     this.showTableOfContents = this.tableOfContents.length > 0;
   }
@@ -165,7 +151,8 @@ export class ApiDetailComponent implements OnInit {
   scrollToSection(target: string) {
     const element = document.getElementById(target);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: 'smooth', block: 'start'});
+      this.activeSection = target;
     }
   }
 }

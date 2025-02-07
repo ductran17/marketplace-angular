@@ -76,6 +76,7 @@ body {
 
 .api-section {
   margin-bottom: 1.5vw;
+  scroll-margin-top: 5vw;
 }
 
 .banner {
