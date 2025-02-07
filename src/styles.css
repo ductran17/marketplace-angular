@@ -1,14 +1,14 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
 
-  /* styles.css */
+* {
+  box-sizing: border-box;
+}
+
+/* styles.css */
 :root {
   --primary-color: #ff0000;
   --text-color: #333;
@@ -70,4 +70,52 @@ body {
 
 .nav-button:hover {
   background: var(--border-color);
+}
+
+/* Generated CSS */
+
+.api-section {
+  margin-bottom: 1.5vw;
+}
+
+.banner {
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding: 2vw 2vw;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 1vw;
+}
+
+.banner-content {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+
+.banner-content-text {
+  flex: 5;
+  overflow-wrap: break-word;
+  padding-top: 0.5vw;
+  padding-right: 1.5vw;
+  text-align: justify;
+}
+
+.banner-content-img {
+  flex: 1;
+  height: auto;
+  position: relative;
+}
+
+.banner-content-img img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .banner-content-img {
+    display: none;
+  }
 }

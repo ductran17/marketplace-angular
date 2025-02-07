@@ -18,7 +18,7 @@
   background-color: #ffffff;
 }
 
-.header-buttons{
+.header-buttons {
   padding: 5px 5px;
   /* z-index: 20; */
 }
@@ -40,7 +40,7 @@ nav {
   z-index: 20;
 }
 
-.logo a img{
+.logo a img {
   max-width: 100px;
 }
 
@@ -88,6 +88,7 @@ nav {
   font-size: 18px;
   margin-left: 26px;
 }
+
 .desktop_menu ul li:hover {
   font-size: 19px;
   font-weight: bold;
@@ -108,7 +109,7 @@ nav {
 
 .menu-icon {
   display: none;
-  z-index: 20; 
+  z-index: 20;
 }
 
 /* .login-btn {
@@ -126,15 +127,18 @@ nav {
   /* z-index: 20; */
 }
 
-@media screen and (max-width: 900px) {
+@media (max-width: 768px) {
   .main-header .logo img {
-    max-width: 100px; /* Smaller logo size */
+    max-width: 100px;
+    /* Smaller logo size */
     /* z-index: 20; */
   }
 
   .main-header .header-buttons .btn {
-    padding: 5px 10px; /* Smaller button size */
-    font-size: 14px;   /* Adjust font size */
+    padding: 5px 10px;
+    /* Smaller button size */
+    font-size: 14px;
+    /* Adjust font size */
     /* z-index: 20; */
   }
 
@@ -147,15 +151,17 @@ nav {
     height: 100%;
     z-index: 10;
     align-items: flex-start;
-    padding-top:2vw;
+    padding-top: 2vw;
   }
 
   .nav-links ul {
-    display: block; /* This makes the <ul> elements stack vertically */
+    display: block;
+    /* This makes the <ul> elements stack vertically */
     list-style: none;
     margin: 0;
     padding: 0;
-    width: 100%;  /* Optional: adjust the width as needed */
+    width: 100%;
+    /* Optional: adjust the width as needed */
   }
 
   .nav-links ul li {
@@ -167,20 +173,20 @@ nav {
     z-index: 10;
   }
 
-  .nav-links ul li a{
+  .nav-links ul li a {
     color: rgb(0, 0, 0);
   }
 
   .nav-links ul li a:hover {
     color: #ef0032;
   }
-  
+
   .nav-links ul li a.active {
     color: #ef0032;
     border-bottom: 2px solid #ef0032;
   }
 
-  .navigation-tabs{
+  .navigation-tabs {
     display: block;
     min-width: 40px;
     min-height: 40px;
@@ -208,7 +214,7 @@ nav {
     min-height: 10px;
   }
 
-  .menu-icon i{
+  .menu-icon i {
     position: relative;
     z-index: 50 !important;
     font-size: 30px;

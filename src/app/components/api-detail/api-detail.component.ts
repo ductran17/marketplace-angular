@@ -94,7 +94,7 @@ export class ApiDetailComponent implements OnInit {
           if (section == "definition" || section =="useFor"){
           const sectionData = this.api.overview[section];
           htmlContent += `
-            <div [class]="section">
+            <div class="api-section">
             <h3>${sectionData.title}</h3>
             <p>${sectionData.content}</p>
             </div>
@@ -102,7 +102,7 @@ export class ApiDetailComponent implements OnInit {
           }
           else if(section=="useCases" || section=="caseStudies"){
             htmlContent +=`
-            <div [class]="section">
+            <div class="api-section">
               <h3>${this.api.overview[section]["title"]}</h3>
               `;
             for (const sectionData of this.api.overview[section]["content"]){
