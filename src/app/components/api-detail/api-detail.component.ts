@@ -50,7 +50,7 @@ export class ApiDetailComponent implements OnInit {
       title: 'Sandbox'
     },
     {
-      id: 'terms', 
+      id: 'term', 
       title: 'Terms and Conditions'
     },
     {
@@ -89,46 +89,170 @@ export class ApiDetailComponent implements OnInit {
   }
 
   getTabContent(tabId: string): SafeHtml {
-    if (tabId === 'overview' && this.api?.overview) { // Use ?. to prevent errors
-      let htmlContent = '';
-      for (const section in this.api.overview) {
-        if (this.api.overview.hasOwnProperty(section)) {
-          if (section == "definition" || section =="useFor"){
-          const sectionData = this.api.overview[section];
-          htmlContent += `
-            <div class="api-section" id="${section}">
-            <h3>${sectionData.title}</h3>
-            <p>${sectionData.content}</p>
-            </div>
-          `;
-          }
-          else if(section=="useCases" || section=="caseStudies"){
-            htmlContent +=`
-            <div class="api-section" id="${section}">
-              <h3>${this.api.overview[section]["title"]}</h3>
-              `;
-            for (const sectionData of this.api.overview[section]["content"]){
-              htmlContent +=`
-              <div class="banner">
-                <div class="banner-title">
-                  <h4>${sectionData["title"]}</h4>
+    switch(tabId){
+      case 'overview':
+        if (this.api?.overview) { // Use ?. to prevent errors
+          let htmlContent = '';
+          for (const section in this.api.overview) {
+            if (this.api.overview.hasOwnProperty(section)) {
+              if (section == "definition" || section =="useFor"){
+              const sectionData = this.api.overview[section];
+              htmlContent += `
+                <div class="api-section" id="${section}">
+                <h3>${sectionData.title}</h3>
+                <p>${sectionData.content}</p>
                 </div>
-                <div class="banner-content">
-                  <div class="banner-content-text">
-                    <p>${sectionData["content"]}</p>
-                  </div>
-                  <div class="banner-content-img">
-                    <img src=${sectionData["image"]}>
-                  </div>
-                </div>
-              </div>
               `;
+              }
+              else if(section=="useCases" || section=="caseStudies"){
+                htmlContent +=`
+                <div class="api-section" id="${section}">
+                  <h3>${this.api.overview[section]["title"]}</h3>
+                  `;
+                for (const sectionData of this.api.overview[section]["content"]){
+                  htmlContent +=`
+                  <div class="banner">
+                    <div class="banner-title">
+                      <h4>${sectionData["title"]}</h4>
+                    </div>
+                    <div class="banner-content">
+                      <div class="banner-content-text">
+                        <p>${sectionData["content"]}</p>
+                      </div>
+                      <div class="banner-content-img">
+                        <img src=${sectionData["image"]}>
+                      </div>
+                    </div>
+                  </div>
+                  `;
+                }
+                htmlContent +=`</div>`;
+              }
             }
-            htmlContent +=`</div>`;
           }
+          return this.sanitizer.bypassSecurityTrustHtml(htmlContent);
         }
-      }
-      return this.sanitizer.bypassSecurityTrustHtml(htmlContent); // Return the generated HTML
+        break;
+      
+      case 'documentation':
+        if (this.api?.overview) { // Use ?. to prevent errors
+          let htmlContent = '';
+          for (const section in this.api.overview) {
+            if (this.api.overview.hasOwnProperty(section)) {
+              if (section == "definition" || section =="useFor"){
+              const sectionData = this.api.overview[section];
+              htmlContent += `
+                <div class="api-section" id="${section}">
+                <h3>${sectionData.title}</h3>
+                <p>${sectionData.content}</p>
+                </div>
+              `;
+              }
+              else if(section=="useCases" || section=="caseStudies"){
+                htmlContent +=`
+                <div class="api-section" id="${section}">
+                  <h3>${this.api.overview[section]["title"]}</h3>
+                  `;
+                for (const sectionData of this.api.overview[section]["content"]){
+                  htmlContent +=`
+                  <div class="banner">
+                    <div class="banner-title">
+                      <h4>${sectionData["title"]}</h4>
+                    </div>
+                    <div class="banner-content">
+                      <div class="banner-content-text">
+                        <p>${sectionData["content"]}</p>
+                      </div>
+                      <div class="banner-content-img">
+                        <img src=${sectionData["image"]}>
+                      </div>
+                    </div>
+                  </div>
+                  `;
+                }
+                htmlContent +=`</div>`;
+              }
+            }
+          }
+          return this.sanitizer.bypassSecurityTrustHtml(htmlContent);
+        }
+        break;
+
+      case 'sandbox':
+        if (this.api?.overview) { // Use ?. to prevent errors
+          let htmlContent = '';
+          for (const section in this.api.overview) {
+            if (this.api.overview.hasOwnProperty(section)) {
+              if (section == "definition" || section =="useFor"){
+              const sectionData = this.api.overview[section];
+              htmlContent += `
+                <div class="api-section" id="${section}">
+                <h3>${sectionData.title}</h3>
+                <p>${sectionData.content}</p>
+                </div>
+              `;
+              }
+              else if(section=="useCases" || section=="caseStudies"){
+                htmlContent +=`
+                <div class="api-section" id="${section}">
+                  <h3>${this.api.overview[section]["title"]}</h3>
+                  `;
+                for (const sectionData of this.api.overview[section]["content"]){
+                  htmlContent +=`
+                  <div class="banner">
+                    <div class="banner-title">
+                      <h4>${sectionData["title"]}</h4>
+                    </div>
+                    <div class="banner-content">
+                      <div class="banner-content-text">
+                        <p>${sectionData["content"]}</p>
+                      </div>
+                      <div class="banner-content-img">
+                        <img src=${sectionData["image"]}>
+                      </div>
+                    </div>
+                  </div>
+                  `;
+                }
+                htmlContent +=`</div>`;
+              }
+            }
+          }
+          return this.sanitizer.bypassSecurityTrustHtml(htmlContent);
+        }
+        break;
+
+      case 'term':
+        if (this.api?.term) { // Use ?. to prevent errors
+          let htmlContent = '';
+          for (const section in this.api.term) {
+            if (this.api.term.hasOwnProperty(section)) {
+              if (section =="generalTerm"){
+              const sectionData = this.api.term[section];
+              htmlContent += `
+                <div class="api-section" id="${section}">
+                  <h3>${sectionData.title}</h3>
+                  <p>${sectionData.content}</p>
+                </div>
+              `;
+              }
+              else if(section=="terms"){
+                htmlContent +=`
+                <div class="api-section" id="${section}">
+                  `;
+                for (const sectionData of this.api.term[section]["content"]){
+                  htmlContent +=`
+                  <h3>${sectionData.title}</h3>
+                  <p>${sectionData.content}</p>
+                  `;
+                }
+                htmlContent +=`</div>`;
+              }
+            }
+          }
+          return this.sanitizer.bypassSecurityTrustHtml(htmlContent);
+        }
+        break;
     }
     return this.sanitizer.bypassSecurityTrustHtml('<p>No content available for this tab.</p>');
   }

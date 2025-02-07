@@ -2,9 +2,7 @@
   <!-- Left Sidebar -->
   <nav class="nav-sidebar">
     <ul class="nav-list">
-      <li *ngFor="let tab of tabs" 
-          [class.active]="activeTab === tab.id"
-          (click)="setActiveTab(tab.id)">
+      <li *ngFor="let tab of tabs" [class.active]="activeTab === tab.id" (click)="setActiveTab(tab.id)">
         {{ tab.title }}
       </li>
     </ul>
@@ -17,7 +15,7 @@
         <h2>Overview</h2>
         <div [innerHTML]="getTabContent('overview')"></div>
       </div>
-      
+
       <div *ngSwitchCase="'documentation'" class="content-section">
         <h2>Documentation</h2>
         <div class="api-docs">
@@ -29,14 +27,14 @@
         </div>
       </div>
 
-      <div *ngSwitchCase="'sandbox'" class="content-section"> 
+      <div *ngSwitchCase="'sandbox'" class="content-section">
         <h2>Sandbox</h2>
         <div [innerHTML]="getTabContent('sandbox')"></div>
       </div>
 
-      <div *ngSwitchCase="'terms'" class="content-section">
+      <div *ngSwitchCase="'term'" class="content-section">
         <h2>Terms and Conditions</h2>
-        <div [innerHTML]="getTabContent('terms')"></div>
+        <div [innerHTML]="getTabContent('term')"></div>
       </div>
 
       <div *ngSwitchCase="'contact'" class="content-section">
@@ -50,8 +48,7 @@
   <aside class="table-of-contents" *ngIf="showTableOfContents">
     <h3>Table of Contents</h3>
     <ul>
-      <li *ngFor="let item of tableOfContents"
-          (click)="scrollToSection(item.target)">
+      <li *ngFor="let item of tableOfContents" (click)="scrollToSection(item.target)">
         {{ item.title }}
       </li>
     </ul>

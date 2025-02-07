@@ -130,16 +130,19 @@ export const SIM_SWAP_API: Api={
         sandboxSwagger: "#"
     },
     term: {
-        terms:[
-            {
-                title: "Term 1",
-                content: `This is term 1.`
-            },
-            {
-                title: "Term 2",
-                content: `This is term 2.`
-            }
-        ],
+        terms:{
+            title: "Terms List",
+            content:[
+                {
+                    title: "Term 1",
+                    content: `This is term 1.`
+                },
+                {
+                    title: "Term 2",
+                    content: `This is term 2.`
+                }
+            ]
+        },
         generalTerm:{
             title: "General Terms and Condition",
             content: "By using this API, you also agree with our General Terms and Condition."

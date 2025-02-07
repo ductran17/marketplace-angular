@@ -42,7 +42,10 @@ export interface ApiSandbox{
 }
 
 export interface ApiTerm{
-  terms: ApiSection[];
+  terms: {
+    title: string;
+    content: ApiSection[];
+  };
   generalTerm: ApiSection;
 }
 
