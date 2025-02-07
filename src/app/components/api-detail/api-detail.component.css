@@ -46,6 +46,8 @@
   /* Main content section */
   .main-content {
     grid-column: 2;
+    /* display: flex; */
+    min-width: 60vw;
     h2 {
       font-size: 24px;
       font-weight: 600;
@@ -56,6 +58,45 @@
       padding-left: 0px;
       padding-right: 10px;
     }
+  }
+
+  .banner{
+    display: flex;
+    max-width: 200px;
+    position: relative;
+  }
+
+  .banner-content {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+  }
+
+  .banner-content-text{
+    flex: 5;
+    margin-left: 10px;
+    max-width: 200px;
+    overflow-wrap: break-word;
+  }
+
+  .banner-content-text >.p{ 
+    max-width: 200px;
+  }
+
+  .banner-content-img{
+    flex: 1;
+    width: 50px;
+    height: auto;
+    position: relative;
+    max-width: 200px;
+  }
+
+  .banner-content-img img {
+    width: 200px;
+    height: 200px;
+    max-width: 200px;
+    object-fit: contain;
   }
 
   /* Right sidebar - Table of Contents */

@@ -8,29 +8,41 @@ html, body {
   flex-direction: column;
   min-height: 100vh; /* Ensure the app spans the full height of the viewport */
 }
-.app-header {
-  z-index: 1;
+.app-header{
+  background-color: #ffffff;
+  position: fixed;
+  z-index: 20 !important;
 }
+
 .content {
-  margin-top: 80px; /* Account for fixed header */
-  padding: 2rem;
+  padding: 2vw;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  flex: 1; /* Allow the main content to grow and take up remaining space */
+  z-index: 1;
 }
 
 footer {
   background-color: #f8f8f8; /* Optional styling */
   padding: 20px; /* Optional styling */
+  z-index: 20;
 }
 
 @media (max-width: 768px) {
+  .app-header{
+    background-color: #ffffff;
+    position: fixed;
+    z-index: 20 !important;
+  }
+
   .content {
-    margin-top: 120px; /* Account for fixed header */
+    margin-top: 5vw; /* Account for fixed header */
     padding: 0;
     width: 100%;
     margin-left: 0;
     margin-right: 0;
     flex: 1; /* Allow the main content to grow and take up remaining space */
+    z-index: 1;
   }
 }

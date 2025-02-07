@@ -28,13 +28,13 @@ export const DEVICE_LOCATION_API: Api={
                     In  this way, any location-dependent transactions can be verified to reduce  the risks related to account takeover and other types of identity fraud.
                     \n The digitalisation of transactions  is increasing, however, every digital transaction takes place in a real  physical space. 
                     The Device Location Verification API makes it possible  to connect the two worlds, verifying that a user's device is actually  located where the transaction is taking place.`,
-                    image: '#'
+                    image: 'assets/images/device-location/usecase1.jpg'
                 },
                 {
                     title: "Fraud prevention in gaming, retail and distribution",
                     content:`Often, gaming, retail or goods distribution companies make launches restricted to a specific region or country.  
                     Fraud detection based on false locations or account spoofing allows  companies to maintain control of their services by validating where  their customers and fleets are located thanks to the integration of the Device Location Verification API.`,
-                    image: '#'
+                    image: 'assets/images/device-location/usecase2.jpg'
                 }]
             },
         caseStudies: {
@@ -47,7 +47,7 @@ export const DEVICE_LOCATION_API: Api={
                     One of the  areas for improvement in the banking applications is the process of  signing up for a new product or opening a new account. 
                     Thanks to the integration of Device Location Verification, Daycoval can ask Vivo to  verify the location of its users to automate steps when performing  different banking operations. 
                     This allows for the development of new, smarter and more efficient fintech services, increasing customer satisfaction.`,
-                    image: "#"
+                    image: "assets/images/device-location/casestudy1.png"
                 },
                 {
                     title: "Drone fleet control",
@@ -55,7 +55,7 @@ export const DEVICE_LOCATION_API: Api={
                     Ericsson and Vonage are teaming up to offer developers the ability to integrate Open Gateway solutions to enhance their users experience of Open Gateway applications. 
                     By integrating the  Device Location Verification API, advanced network capabilities can be incorporated to quickly and easily verify a drone's position. 
                     This makes it possible to develop new applications that provide maximum security  in controlling drone fleets.`,
-                    image: "#"
+                    image: "assets/images/device-location/casestudy2.jpg"
                 }]
             },
     },

@@ -1,23 +1,88 @@
-header {
-  padding: 10px;
-  background: #02534d;
-  z-index: 1;
+.main-header {
+  position: fixed;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 20;
+  width: 100%;
 }
-.logo {
-  width: 90px;
+
+.header-container {
+  display: flex;
+  position: fixed;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 5px 5px;
+  z-index: 20;
+  background-color: #ffffff;
 }
-.logo:hover {
-  cursor: pointer;
+
+.header-buttons{
+  padding: 5px 5px;
+  /* z-index: 20; */
 }
-.desktop_menu {
-  margin-top: 24px;
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
 }
-.desktop_menu ul {
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  padding: 10px 10px;
+  z-index: 20;
+}
+
+.logo a img{
+  max-width: 100px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.nav-links ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
   padding: 0;
   margin: 0;
 }
-.desktop_menu ul li {
-  list-style-type: none;
+
+.nav-links ul li {
+  padding: 10px 20px;
+}
+
+.nav-links ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  /* padding: 0.5rem 1rem; */
+  transition: color 0.3s ease;
+}
+
+.nav-links ul li a:hover {
+  color: #ef0032;
+}
+
+.nav-links ul li a.active {
+  color: #ef0032;
+  border-bottom: 2px solid #ef0032;
+}
+
+.header-buttons .btn {
+  background-color: #ef0032;
   color: white;
   display: inline-block;
   font-size: 18px;
@@ -27,38 +92,133 @@ header {
   font-size: 19px;
   font-weight: bold;
   cursor: pointer;
-  color: yellow;
-  transition: 0.3s ease-in-out;
-}
-.menu-icon {
-  display: none;
+  margin-right: 10px;
+  /* Add space between the buttons */
+  border-radius: 5px;
+  /* Optional: make the button edges rounded */
+  transition: background-color 0.3s ease;
+  /* z-index: 20; */
 }
 
-@media screen and (min-width: 128px) and (max-width: 900px) {
-  .desktop_menu {
-    position: fixed !important;
-    right: -280px;
-    transition: 0.4s ease-in-out;
-    top: 64px;
-    background: #02534d;
-    width: 500px;
-    height: 100%;
+.header-buttons .btn:last-child {
+  margin-right: 0;
+  /* Remove margin for the last button */
+  /* z-index: 20; */
+}
+
+.menu-icon {
+  display: none;
+  z-index: 20; 
+}
+
+/* .login-btn {
+  background-color: #ef0032;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  margin-right: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+} */
+
+.header-buttons .btn:hover {
+  background-color: #c0022b;
+  /* z-index: 20; */
+}
+
+@media screen and (max-width: 900px) {
+  .main-header .logo img {
+    max-width: 100px; /* Smaller logo size */
+    /* z-index: 20; */
   }
-  .desktop_menu ul li {
+
+  .main-header .header-buttons .btn {
+    padding: 5px 10px; /* Smaller button size */
+    font-size: 14px;   /* Adjust font size */
+    /* z-index: 20; */
+  }
+
+  .nav-links {
+    position: fixed !important;
+    transition: 0.4s ease-in-out;
+    left: -40%;
+    background: #ffffff;
+    width: 40%;
+    height: 100%;
+    z-index: 10;
+    align-items: flex-start;
+    padding-top:2vw;
+  }
+
+  .nav-links ul {
+    display: block; /* This makes the <ul> elements stack vertically */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;  /* Optional: adjust the width as needed */
+  }
+
+  .nav-links ul li {
     display: block;
     text-align: left;
     margin: 0;
     padding: 10px 0 10px 26px;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    z-index: 10;
   }
+
+  .nav-links ul li a{
+    color: rgb(0, 0, 0);
+  }
+
+  .nav-links ul li a:hover {
+    color: #ef0032;
+  }
+  
+  .nav-links ul li a.active {
+    color: #ef0032;
+    border-bottom: 2px solid #ef0032;
+  }
+
+  .navigation-tabs{
+    display: block;
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  .header-container {
+    display: flex;
+    position: fixed;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    /* width: 100%; */
+    /* padding: 5px 5px; */
+    /* z-index: 20; */
+    /* background-color: #ffffff; */
+  }
+
   .menu-icon {
     display: block;
-    color: white;
-    font-size: 40px;
-    padding-top: 10px;
+    position: relative;
+    color: rgb(0, 0, 0);
+    /* padding-top: 10px; */
+    z-index: 50 !important;
+    min-width: 10px;
+    min-height: 10px;
   }
+
+  .menu-icon i{
+    position: relative;
+    z-index: 50 !important;
+    font-size: 30px;
+    min-width: 10px;
+    min-height: 10px;
+  }
+
   .mobile_menu {
-    right: 0;
+    left: 0;
     transition: 0.4s ease-in-out;
+    z-index: 10;
   }
 }
