@@ -127,7 +127,7 @@ export const DEVICE_LOCATION_API: Api={
             Restrictions for tokens without an associated authenticated identifier:
             For scenarios which do not have a single device identifier  associated to the token during the authentication flow, e.g. 2-legged  access tokens, the device object MUST be provided in the  API request. This ensures that the device identification is explicit and valid for each API call made with these tokens.`
         },
-        sandboxSwagger: "#"
+        sandboxSwagger: "/assets/images/device-location/openapi.json"
     },
     term: {
         terms:{

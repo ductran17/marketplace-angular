@@ -30,6 +30,11 @@
       <div *ngSwitchCase="'sandbox'" class="content-section">
         <h2>Sandbox</h2>
         <div [innerHTML]="getTabContent('sandbox')"></div>
+        <!-- Swagger UI section -->
+        <div class="swagger-section">
+          <h3>API Explorer</h3>
+          <div #swaggerContainer class="swagger-container"></div>
+        </div>
       </div>
 
       <div *ngSwitchCase="'term'" class="content-section">
