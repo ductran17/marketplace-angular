@@ -1,8 +1,8 @@
-import { Component, OnInit, AfterViewInit,AfterContentInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit,AfterContentInit, ElementRef, ViewChild, PLATFORM_ID, Inject} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { Api, ApiSection } from '../../models/api.model'
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import SwaggerUI from 'swagger-ui';
 import { marked } from 'marked';
 import * as ApiModels from '../../models';
@@ -69,7 +69,8 @@ export class ApiDetailComponent implements OnInit, AfterViewInit {
   constructor(
     private route: ActivatedRoute,
     private apiService: ApiService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   ngOnInit() {
@@ -96,8 +97,10 @@ export class ApiDetailComponent implements OnInit, AfterViewInit {
     this.activeSection = '';
     // Reset scroll position when changing tabs
     setTimeout(() => {
-      window.scrollTo(0, 0);
-      if (tabId=="sandbox"){
+      if (isPlatformBrowser(this.platformId)) {
+        window.scrollTo(0, 0); // Only run this in the browser
+      }
+      if (tabId == "sandbox") {
         this.loadSwaggerSpec();
       }
     }, 0);
