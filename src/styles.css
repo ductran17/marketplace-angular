@@ -87,6 +87,7 @@ body {
   margin-top: 1vw;
 }
 
+@media (min-width: 768px){
 .banner-content {
   display: flex !important;
   flex-direction: row;
@@ -113,6 +114,7 @@ body {
   height: 200px;
   object-fit: cover;
   border-radius: 12px;
+}
 }
 
 @media (max-width: 768px) {

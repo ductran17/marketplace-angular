@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit,AfterContentInit, ElementRef, ViewChild, PLATFORM_ID, Inject} from '@angular/core';
+import { Component, OnInit, AfterViewInit,AfterContentInit, ElementRef, ViewChild, PLATFORM_ID, Inject, ChangeDetectorRef} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import { Api, ApiSection } from '../../models/api.model'
@@ -35,7 +35,7 @@ interface ContentSection {
   styleUrls: ['./api-detail.component.css']
 })
 
-export class ApiDetailComponent implements OnInit, AfterViewInit {
+export class ApiDetailComponent implements OnInit {
   @ViewChild('swaggerContainer') swaggerContainer?:ElementRef;
   tabs: TabItem[] = [
     {
@@ -70,7 +70,8 @@ export class ApiDetailComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     private apiService: ApiService,
     private sanitizer: DomSanitizer,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
@@ -83,12 +84,12 @@ export class ApiDetailComponent implements OnInit, AfterViewInit {
     // this.loadSwaggerSpec();
   }
 
-  ngAfterViewInit(){
-    // if (this.activeTab=="sandbox"){
-    //   this.loadSwaggerSpec();
-    // }
-    this.loadSwaggerSpec();
-  }
+  // ngAfterViewInit(){
+  //   // if (this.activeTab=="sandbox"){
+  //   //   this.loadSwaggerSpec();
+  //   // }
+  //   this.loadSwaggerSpec();
+  // }
 
 
 
@@ -101,9 +102,10 @@ export class ApiDetailComponent implements OnInit, AfterViewInit {
         window.scrollTo(0, 0); // Only run this in the browser
       }
       if (tabId == "sandbox") {
+        this.cdr.detectChanges();
         this.loadSwaggerSpec();
       }
-    }, 0);
+    }, 0.5);
     this.updateTableOfContents();
   }
 
