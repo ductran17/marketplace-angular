@@ -73,10 +73,11 @@ export class ApiDetailComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit() {
-    this.updateTableOfContents();
+    // this.updateTableOfContents();
     const apiId = this.route.snapshot.paramMap.get('id');
     if (apiId) {
       this.api = this.apiService.getApiById(apiId);
+      this.setActiveTab('overview');
     }
     // this.loadSwaggerSpec();
   }
