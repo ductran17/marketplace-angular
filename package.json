@@ -28,7 +28,8 @@
     "marketplace": "file:",
     "rxjs": "~7.8.0",
     "swagger-ui": "^5.18.3",
-    "swagger-ui-dist": "^5.18.2",
+    "swagger-ui-dist": "^5.18.3",
+    "swagger-ui-themes": "^3.0.1",
     "swiper": "^11.2.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"

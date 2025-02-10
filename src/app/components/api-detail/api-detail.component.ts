@@ -27,6 +27,8 @@ interface ContentSection {
   type: 'text' | 'code' | 'swagger';
 }
 
+declare const SwaggerUIBundle: any;
+
 @Component({
   selector: 'app-api-detail',
   standalone: true,
@@ -112,7 +114,6 @@ export class ApiDetailComponent implements OnInit {
   private async loadSwaggerSpec(){
     if (this.swaggerContainer && this.api?.sandbox?.sandboxSwagger){
       try{
-        // const swaggerSpec=await import(/* @vite-ignore */this.api.sandbox.sandboxSwagger);
         const response = await fetch(this.api.sandbox.sandboxSwagger);
         if (!response.ok) {
           throw new Error(`Failed to load Swagger spec: ${response.statusText}`);
@@ -137,9 +138,16 @@ export class ApiDetailComponent implements OnInit {
     if (this.swaggerUI){
       this.swaggerUI=undefined;
     }
-    this.swaggerUI = SwaggerUI({
-      spec: spec.default || spec, // Handle both ESM and CommonJS modules
-      domNode: this.swaggerContainer?.nativeElement
+    this.swaggerUI = SwaggerUIBundle({
+      domNode: this.swaggerContainer?.nativeElement,
+      layout: 'BaseLayout',
+      presets: [
+        SwaggerUIBundle.presets.apis,
+        SwaggerUIBundle.SwaggerUIStandalonePreset
+      ],
+      spec: spec.default || spec,
+      docExpansion: 'none',
+      operationsSorter: 'alpha'
     });
   }
 
