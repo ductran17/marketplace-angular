@@ -18,8 +18,7 @@ import { ApiCardComponent } from './components/api-card/api-card.component';
 @NgModule({
   declarations: [
     HomeComponent,
-    ApiCatalogComponent,
-    SupportComponent
+    ApiCatalogComponent
   ],
   imports: [
     HeaderComponent,
@@ -33,7 +32,8 @@ import { ApiCardComponent } from './components/api-card/api-card.component';
     ReactiveFormsModule,
     HomeSliderComponent,
     ApiDetailComponent,
-    ApiCardComponent
+    ApiCardComponent,
+    SupportComponent
 ],
   providers: [],
   bootstrap: []

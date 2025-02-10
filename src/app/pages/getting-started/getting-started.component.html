@@ -1,22 +1,2 @@
 <div class="getting-started-container">
-    <h2>Get Started with Our API</h2>
-    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" formControlName="name">
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" formControlName="email">
-      </div>
-      <div class="form-group">
-        <label for="company">Company</label>
-        <input type="text" id="company" formControlName="company">
-      </div>
-      <div class="form-group">
-        <label for="useCase">Use Case</label>
-        <textarea id="useCase" formControlName="useCase"></textarea>
-      </div>
-      <button type="submit" [disabled]="!registrationForm.valid">Submit</button>
-    </form>
   </div>
