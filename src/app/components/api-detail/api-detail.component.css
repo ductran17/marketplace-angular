@@ -268,6 +268,22 @@
   background: #555;
 }
 
+.collapsible-list li.selected {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+}
+
+.collapsible-list li {
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+.collapsible-list li:hover {
+  background-color: #f0f0f0;
+}
+
 /* Mobile breakpoint */
 @media (max-width: 768px) {
   .api-detail-container {

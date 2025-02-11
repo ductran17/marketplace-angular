@@ -10,6 +10,7 @@ export interface Api {
     documentation: ApiDocumentation;
     sandbox: ApiSandbox;
     term: ApiTerm;
+    contact: any;
   }
 
 export interface ApiOverview{

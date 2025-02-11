@@ -147,5 +147,6 @@ export const QUALITY_ON_DEMAND_API: Api={
             title: "General Terms and Condition",
             content: "By using this API, you also agree with our General Terms and Condition."
         }
-    }
+    },
+    contact: '#'
 }

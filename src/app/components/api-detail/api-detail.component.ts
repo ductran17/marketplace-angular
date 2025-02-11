@@ -7,6 +7,8 @@ import SwaggerUI from 'swagger-ui';
 import { marked } from 'marked';
 import * as ApiModels from '../../models';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 interface TabItem {
   id: string;
@@ -39,6 +41,7 @@ declare const SwaggerUIBundle: any;
 
 export class ApiDetailComponent implements OnInit {
   @ViewChild('swaggerContainer') swaggerContainer?:ElementRef;
+  
   tabs: TabItem[] = [
     {
       id: 'overview', 
@@ -67,33 +70,23 @@ export class ApiDetailComponent implements OnInit {
   showTableOfContents: boolean = true;
   api: Api | undefined;
   swaggerUI?:any;
+  defaultValue=1;
 
   constructor(
     private route: ActivatedRoute,
     private apiService: ApiService,
     private sanitizer: DomSanitizer,
     @Inject(PLATFORM_ID) private platformId: Object,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
   ) {}
 
   ngOnInit() {
-    // this.updateTableOfContents();
     const apiId = this.route.snapshot.paramMap.get('id');
     if (apiId) {
       this.api = this.apiService.getApiById(apiId);
       this.setActiveTab('overview');
     }
-    // this.loadSwaggerSpec();
   }
-
-  // ngAfterViewInit(){
-  //   // if (this.activeTab=="sandbox"){
-  //   //   this.loadSwaggerSpec();
-  //   // }
-  //   this.loadSwaggerSpec();
-  // }
-
-
 
   setActiveTab(tabId: string) {
     this.activeTab = tabId;
@@ -256,14 +249,6 @@ export class ApiDetailComponent implements OnInit {
                   </div>
                 `;
               }
-              // else if(section=="sandboxSwagger"){
-              //   htmlContent +=`
-              //   <div class="api-section" id="${section}">
-              //     <h3>${this.api.overview[section]["title"]}</h3>
-              //     `;
-              //   htmlContent +=`</div>`;
-              //   // this.loadSwaggerSpec();
-              // }
             }
           }
           return this.sanitizer.bypassSecurityTrustHtml(htmlContent);
@@ -298,6 +283,45 @@ export class ApiDetailComponent implements OnInit {
               }
             }
           }
+          return this.sanitizer.bypassSecurityTrustHtml(htmlContent);
+        }
+        break;
+
+      case "contact":
+        if (this.api?.contact){
+          let htmlContent=`
+            <h2></h2>
+            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" formControlName="name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" formControlName="email">
+            </div>
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input type="text" id="company" formControlName="company">
+            </div>
+            <div class="form-group">
+              <label for="useCase">Use Case</label>
+              <textarea id="useCase" formControlName="useCase"></textarea>
+            </div>
+            <div class="form-group">
+              <mat-form-field appearance="fill">
+              <mat-label>Select</mat-label>
+                <mat-select [value]="defaultValue">
+                  <mat-option [value]=""></mat-option>
+                  <mat-option [value]="1">1</mat-option>
+                  <mat-option [value]="2">2</mat-option>
+                  <mat-option [value]="3">3</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <button type="submit" [disabled]="!registrationForm.valid">Submit</button>
+            </form>
+          `
           return this.sanitizer.bypassSecurityTrustHtml(htmlContent);
         }
         break;
