@@ -7,8 +7,8 @@ import SwaggerUI from 'swagger-ui';
 import { marked } from 'marked';
 import * as ApiModels from '../../models';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
+// import { MatFormFieldModule } from '@angular/material/form-field';
+// import { MatSelectModule } from '@angular/material/select';
 
 interface TabItem {
   id: string;
@@ -71,6 +71,7 @@ export class ApiDetailComponent implements OnInit {
   api: Api | undefined;
   swaggerUI?:any;
   defaultValue=1;
+  apiList:string[]=[];
 
   constructor(
     private route: ActivatedRoute,
@@ -82,6 +83,7 @@ export class ApiDetailComponent implements OnInit {
 
   ngOnInit() {
     const apiId = this.route.snapshot.paramMap.get('id');
+    this.apiList=this.apiService.getAllApiNames();
     if (apiId) {
       this.api = this.apiService.getApiById(apiId);
       this.setActiveTab('overview');
@@ -309,18 +311,13 @@ export class ApiDetailComponent implements OnInit {
               <textarea id="useCase" formControlName="useCase"></textarea>
             </div>
             <div class="form-group">
-              <mat-form-field appearance="fill">
-              <mat-label>Select</mat-label>
-                <mat-select [value]="defaultValue">
-                  <mat-option [value]=""></mat-option>
-                  <mat-option [value]="1">1</mat-option>
-                  <mat-option [value]="2">2</mat-option>
-                  <mat-option [value]="3">3</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
+              <label for="dropdownField">Select an API</label>
+              <select id="dropdownField" formControlName="dropdownField">
+                ${this.apiList.map(value => `<option value="${value}">${value}</option>`).join('')}
+              </select>    
+            </div>        
             <button type="submit" [disabled]="!registrationForm.valid">Submit</button>
-            </form>
+          </form>
           `
           return this.sanitizer.bypassSecurityTrustHtml(htmlContent);
         }

@@ -18,6 +18,10 @@ export class ApiService {
     return this.apis;
   }
 
+  getAllApiNames(): string[]{
+    return this.apis.map(api => api["name"]);
+  }
+
   getFeaturedApis(): Api[] {
     return this.apis.slice(0, 6);
   }

@@ -284,6 +284,8 @@
   background-color: #f0f0f0;
 }
 
+
+
 /* Mobile breakpoint */
 @media (max-width: 768px) {
   .api-detail-container {
