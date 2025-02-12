@@ -7,8 +7,7 @@ import SwaggerUI from 'swagger-ui';
 import { marked } from 'marked';
 import * as ApiModels from '../../models';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-// import { MatFormFieldModule } from '@angular/material/form-field';
-// import { MatSelectModule } from '@angular/material/select';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
 interface TabItem {
   id: string;
@@ -34,7 +33,7 @@ declare const SwaggerUIBundle: any;
 @Component({
   selector: 'app-api-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './api-detail.component.html',
   styleUrls: ['./api-detail.component.css']
 })
@@ -72,6 +71,7 @@ export class ApiDetailComponent implements OnInit {
   swaggerUI?:any;
   defaultValue=1;
   apiList:string[]=[];
+  registrationForm!: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
@@ -79,6 +79,7 @@ export class ApiDetailComponent implements OnInit {
     private sanitizer: DomSanitizer,
     @Inject(PLATFORM_ID) private platformId: Object,
     private cdr: ChangeDetectorRef,
+    private fb: FormBuilder
   ) {}
 
   ngOnInit() {
@@ -88,6 +89,9 @@ export class ApiDetailComponent implements OnInit {
       this.api = this.apiService.getApiById(apiId);
       this.setActiveTab('overview');
     }
+    this.registrationForm = this.fb.group({
+      dropdownField: [this.api?.name, Validators.required] // Set default value
+    });
   }
 
   setActiveTab(tabId: string) {
@@ -144,6 +148,13 @@ export class ApiDetailComponent implements OnInit {
       docExpansion: 'none',
       operationsSorter: 'alpha'
     });
+  }
+
+  onSubmit() {
+    if (this.registrationForm.valid) {
+      console.log(this.registrationForm.value);
+      // Handle form submission
+    }
   }
 
   getTabContent(tabId: string): SafeHtml {
@@ -290,37 +301,7 @@ export class ApiDetailComponent implements OnInit {
         break;
 
       case "contact":
-        if (this.api?.contact){
-          let htmlContent=`
-            <h2></h2>
-            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" formControlName="name">
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" formControlName="email">
-            </div>
-            <div class="form-group">
-              <label for="company">Company</label>
-              <input type="text" id="company" formControlName="company">
-            </div>
-            <div class="form-group">
-              <label for="useCase">Use Case</label>
-              <textarea id="useCase" formControlName="useCase"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="dropdownField">Select an API</label>
-              <select id="dropdownField" formControlName="dropdownField">
-                ${this.apiList.map(value => `<option value="${value}">${value}</option>`).join('')}
-              </select>    
-            </div>        
-            <button type="submit" [disabled]="!registrationForm.valid">Submit</button>
-          </form>
-          `
-          return this.sanitizer.bypassSecurityTrustHtml(htmlContent);
-        }
+        // do nothing because already handled in template file
         break;
     }
     return this.sanitizer.bypassSecurityTrustHtml('<p>No content available for this tab.</p>');
