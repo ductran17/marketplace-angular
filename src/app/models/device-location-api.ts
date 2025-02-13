@@ -61,20 +61,6 @@ export const DEVICE_LOCATION_API: Api={
     },
     documentation:{
         introduction: {
-            title: "Introduction",
-            content: `The CAMARA Device Location Verification API provides a standardized  mechanism for checking mobile equipment geographic location. 
-            API  customers are able to verify whether the location of certain user device is within the area specified by the provided coordinates (latitude and  longitude) and some expected accuracy. 
-            The API response is a boolean:  The equipment is within (or not) the accuracy radius with a center point at provided latitude/longitude.`
-        },
-        howItWork: {
-            title: "How it works",
-            content: `Following figure provides a high-level view of the API architecture:`,
-            image: "#"
-        },
-        swagger: "#"
-    },
-    sandbox:{
-        introduction: {
             title: 'Introduction',
             content: `With this API, API consumers can retrieve the area where a certain user device is localized. The area provided in the response could be described:
             by a circle determined by coordinates (latitude and longitude) and a radius.
@@ -128,6 +114,9 @@ export const DEVICE_LOCATION_API: Api={
             For scenarios which do not have a single device identifier  associated to the token during the authentication flow, e.g. 2-legged  access tokens, the device object MUST be provided in the  API request. This ensures that the device identification is explicit and valid for each API call made with these tokens.`
         },
         sandboxSwagger: "/assets/images/device-location/openapi.json"
+    },
+    sandbox:{
+        sandboxUrl:"#"
     },
     term: {
         terms:{

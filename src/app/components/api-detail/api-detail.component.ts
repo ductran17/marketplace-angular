@@ -109,7 +109,7 @@ export class ApiDetailComponent implements OnInit {
       if (isPlatformBrowser(this.platformId)) {
         window.scrollTo(0, 0); // Only run this in the browser
       }
-      if (tabId == "sandbox") {
+      if (tabId == "documentation") {
         this.cdr.detectChanges();
         this.loadSwaggerSpec();
       }
@@ -118,9 +118,9 @@ export class ApiDetailComponent implements OnInit {
   }
 
   private async loadSwaggerSpec(){
-    if (this.swaggerContainer && this.api?.sandbox?.sandboxSwagger){
+    if (this.swaggerContainer && this.api?.documentation?.sandboxSwagger){
       try{
-        const response = await fetch(this.api.sandbox.sandboxSwagger);
+        const response = await fetch(this.api.documentation.sandboxSwagger);
         if (!response.ok) {
           throw new Error(`Failed to load Swagger spec: ${response.statusText}`);
         }
@@ -211,6 +211,27 @@ export class ApiDetailComponent implements OnInit {
         break;
       
       case 'documentation':
+        if (this.api?.documentation) { // Use ?. to prevent errors
+          let htmlContent = '';
+          const htmlSection=["introduction","term","functionality","authorization","indentify"]
+          for (const section in this.api.documentation) {
+            if (this.api.documentation.hasOwnProperty(section)) {
+              if (htmlSection.includes(section as typeof htmlSection[number])){
+                const sectionData = this.api.documentation[section as keyof typeof this.api.documentation] as ApiSection;
+                htmlContent += `
+                  <div class="api-section" id="${section}">
+                  <h3>${sectionData.title}</h3>
+                  <p>${sectionData.content}</p>
+                  </div>
+                `;
+              }
+            }
+          }
+          return this.sanitizer.bypassSecurityTrustHtml(htmlContent);
+        }
+        break;
+
+      case 'sandbox':
         if (this.api?.overview) { // Use ?. to prevent errors
           let htmlContent = '';
           for (const section in this.api.overview) {
@@ -247,27 +268,6 @@ export class ApiDetailComponent implements OnInit {
                   `;
                 }
                 htmlContent +=`</div>`;
-              }
-            }
-          }
-          return this.sanitizer.bypassSecurityTrustHtml(htmlContent);
-        }
-        break;
-
-      case 'sandbox':
-        if (this.api?.sandbox) { // Use ?. to prevent errors
-          let htmlContent = '';
-          const htmlSection=["introduction","term","functionality","authorization","indentify"]
-          for (const section in this.api.sandbox) {
-            if (this.api.sandbox.hasOwnProperty(section)) {
-              if (htmlSection.includes(section as typeof htmlSection[number])){
-                const sectionData = this.api.sandbox[section as keyof typeof this.api.sandbox] as ApiSection;
-                htmlContent += `
-                  <div class="api-section" id="${section}">
-                  <h3>${sectionData.title}</h3>
-                  <p>${sectionData.content}</p>
-                  </div>
-                `;
               }
             }
           }

@@ -28,19 +28,19 @@ export interface ApiOverview{
 }
 
 export interface ApiDocumentation{
-  introduction: ApiSection;
-  howItWork: ApiSection;
-  swagger: string;
+  introduction?: ApiSection;
+  term?: ApiSection;
+  functionality?: ApiSection;
+  authorization?: ApiSection;
+  indentify?: ApiSection;
+  sandboxSwagger?: string;
 }
 
 export interface ApiSandbox{
-  introduction: ApiSection;
-  term: ApiSection;
-  functionality: ApiSection;
-  authorization: ApiSection;
-  indentify: ApiSection;
-  sandboxSwagger: string;
+  sandboxUrl?: string;
 }
+
+
 
 export interface ApiTerm{
   terms: {
