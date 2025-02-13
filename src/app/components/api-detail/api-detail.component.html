@@ -27,15 +27,17 @@
       </div>
 
       <div *ngSwitchCase="'sandbox'" class="content-section">
-        <h2>Documentation</h2>
-        <div class="api-docs">
-          <div [innerHTML]="getTabContent('sandbox')"></div>
-          <!-- Swagger/OpenAPI content will be rendered here -->
-          <div class="swagger-section">
-            <!-- Add your Swagger UI component here -->
-          </div>
+        <h2>Sandbox</h2>
+        <div class="banner">
+          <h3> Welcome to your test environment</h3>
+          <p> A secure environment for experimenting, creating, 
+            and testing innovative solutions with cutting-edge web technologies.<br>
+          Leverage our powerful APIs to validate your use cases or develop new and engaging experiences for your customers.</p>
+          <a [href]="api?.sandbox?.sandboxUrl">
+            <button type="sandboxButton">ACCESS THE SANDBOX</button>
+          </a>
         </div>
-      </div>
+        </div>
 
       <div *ngSwitchCase="'term'" class="content-section">
         <h2>Terms and Conditions</h2>

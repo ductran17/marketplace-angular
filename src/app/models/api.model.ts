@@ -40,8 +40,6 @@ export interface ApiSandbox{
   sandboxUrl?: string;
 }
 
-
-
 export interface ApiTerm{
   terms: {
     title: string;

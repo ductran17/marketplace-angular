@@ -322,7 +322,7 @@ textarea {
   resize: vertical;
 }
 
-button[type="submit"] {
+button[type="sandboxButton"] {
   background-color: #e31c3d;
   color: white;
   padding: 12px 24px;
@@ -332,14 +332,14 @@ button[type="submit"] {
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
-  width: 100%;
+  width: 50%;
 }
 
-button[type="submit"]:hover {
+button[type="sandboxButton"]:hover {
   background-color: #cc1935;
 }
 
-button[type="submit"]:disabled {
+button[type="sandboxButton"]:disabled {
   background-color: #f4a7b5;
   cursor: not-allowed;
 }

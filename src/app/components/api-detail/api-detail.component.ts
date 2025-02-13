@@ -114,6 +114,7 @@ export class ApiDetailComponent implements OnInit {
         this.loadSwaggerSpec();
       }
     }, 0);
+    
     this.updateTableOfContents();
   }
 
@@ -231,50 +232,6 @@ export class ApiDetailComponent implements OnInit {
         }
         break;
 
-      case 'sandbox':
-        if (this.api?.overview) { // Use ?. to prevent errors
-          let htmlContent = '';
-          for (const section in this.api.overview) {
-            if (this.api.overview.hasOwnProperty(section)) {
-              if (section == "definition" || section =="useFor"){
-              const sectionData = this.api.overview[section];
-              htmlContent += `
-                <div class="api-section" id="${section}">
-                <h3>${sectionData.title}</h3>
-                <p>${sectionData.content}</p>
-                </div>
-              `;
-              }
-              else if(section=="useCases" || section=="caseStudies"){
-                htmlContent +=`
-                <div class="api-section" id="${section}">
-                  <h3>${this.api.overview[section]["title"]}</h3>
-                  `;
-                for (const sectionData of this.api.overview[section]["content"]){
-                  htmlContent +=`
-                  <div class="banner">
-                    <div class="banner-title">
-                      <h4>${sectionData["title"]}</h4>
-                    </div>
-                    <div class="banner-content">
-                      <div class="banner-content-text">
-                        <p>${sectionData["content"]}</p>
-                      </div>
-                      <div class="banner-content-img">
-                        <img src=${sectionData["image"]}>
-                      </div>
-                    </div>
-                  </div>
-                  `;
-                }
-                htmlContent +=`</div>`;
-              }
-            }
-          }
-          return this.sanitizer.bypassSecurityTrustHtml(htmlContent);
-        }
-        break;
-
       case 'term':
         if (this.api?.term) { // Use ?. to prevent errors
           let htmlContent = '';
@@ -306,55 +263,29 @@ export class ApiDetailComponent implements OnInit {
           return this.sanitizer.bypassSecurityTrustHtml(htmlContent);
         }
         break;
-
-      // case "contact":
-      //   if (this.api?.contact){
-      //     let htmlContent=`
-      //     <div>
-      //     <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-      //       <div class="form-group">
-      //         <label for="name">Name</label>
-      //         <input type="text" id="name" formControlName="name">
-      //       </div>
-      //       <div class="form-group">
-      //         <label for="email">Email</label>
-      //         <input type="email" id="email" formControlName="email">
-      //       </div>
-      //       <div class="form-group">
-      //         <label for="company">Company</label>
-      //         <input type="text" id="company" formControlName="company">
-      //       </div>
-      //       <div class="form-group">
-      //         <label for="useCase">Use Case</label>
-      //         <textarea id="useCase" formControlName="useCase"></textarea>
-      //       </div>
-      //       <div class="form-group">
-      //         <label for="fixedField">Predefined API</label>
-      //         <input id="fixedField" type="text" formControlName="fixedField" class="form-control" />
-      //       </div>    
-      //       <button type="submit" [disabled]="!registrationForm.valid">Submit</button>
-      //     </form>
-      //     </div>`;
-      //     return this.sanitizer.bypassSecurityTrustHtml(htmlContent);
-      //   }
-      //   break;
     }
     return this.sanitizer.bypassSecurityTrustHtml('<p>No content available for this tab.</p>');
   }
 
   updateTableOfContents() {
     const activeTabContent = this.api?.[this.activeTab as keyof Api];
-    if (activeTabContent && typeof activeTabContent === 'object') {
-      this.tableOfContents = Object.entries(activeTabContent as Record<string, { title: string }>)
-        .map(([key, value]) => ({
-          id: key,
-          title: value.title,
-          target: key
-        }));
-    } else {
-      this.tableOfContents = [];
+    if (["overview","documentation","term"].includes(this.activeTab)){
+      if (activeTabContent && typeof activeTabContent === 'object') {
+        this.tableOfContents = Object.entries(activeTabContent as Record<string, { title: string }>)
+          .map(([key, value]) => ({
+            id: key,
+            title: value.title,
+            target: key
+          }));
+      } else {
+        this.tableOfContents = [];
+      }
+      this.showTableOfContents = this.tableOfContents.length > 0;
     }
-    this.showTableOfContents = this.tableOfContents.length > 0;
+    else{
+      this.tableOfContents = [];
+      this.showTableOfContents=false;
+    }
   }
 
   scrollToSection(target: string) {
