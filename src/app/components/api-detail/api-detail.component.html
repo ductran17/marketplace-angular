@@ -44,9 +44,8 @@
 
       <div *ngSwitchCase="'contact'" class="content-section">
         <h2>Contact Us</h2>
-        <div class="contact">
-          <h2></h2>
-            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <div>
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
               <label for="name">Name</label>
               <input type="text" id="name" formControlName="name">
@@ -60,20 +59,16 @@
               <input type="text" id="company" formControlName="company">
             </div>
             <div class="form-group">
-              <label for="useCase">Use Case</label>
-              <textarea id="useCase" formControlName="useCase"></textarea>
-            </div>  
+              <label for="message">Message</label>
+              <textarea id="message" formControlName="message"></textarea>
+            </div>
             <div class="form-group">
-              <label for="dropdownField">Select an API</label>
-              <select id="dropdownField" formControlName="dropdownField">
-                <option *ngFor="let value of this.apiList" [ngValue]="value">
-                  {{ value }}
-                </option>
-              </select>    
-            </div>        
-            <button type="submit" [disabled]="!registrationForm.valid">Submit</button>
+              <label for="api">API</label>
+              <input id="api" formControlName="api" class="form-control" readonly>
+            </div>    
+            <button type="submit" [disabled]="!contactForm.valid">Submit</button>
           </form>
-        </div>
+          </div>
       </div>
     </div>
   </main>

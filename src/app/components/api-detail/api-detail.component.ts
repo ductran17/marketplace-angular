@@ -7,7 +7,7 @@ import SwaggerUI from 'swagger-ui';
 import { marked } from 'marked';
 import * as ApiModels from '../../models';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormControl } from '@angular/forms';
 
 interface TabItem {
   id: string;
@@ -71,27 +71,34 @@ export class ApiDetailComponent implements OnInit {
   swaggerUI?:any;
   defaultValue=1;
   apiList:string[]=[];
-  registrationForm!: FormGroup;
+  contactForm!: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
     private apiService: ApiService,
     private sanitizer: DomSanitizer,
     @Inject(PLATFORM_ID) private platformId: Object,
-    private cdr: ChangeDetectorRef,
-    private fb: FormBuilder
-  ) {}
+    private cdr: ChangeDetectorRef
+  ) {
+    this.contactForm = new FormGroup({
+      name: new FormControl({ value: '', disabled: false }),
+      email: new FormControl({value: '', disabled: false}),
+      company: new FormControl({value:'', disabled: false}),
+      message: new FormControl({value:'', disabled: false}),
+      api: new FormControl({ value: '', disabled: true })
+    });
+
+    this
+  }
 
   ngOnInit() {
     const apiId = this.route.snapshot.paramMap.get('id');
-    this.apiList=this.apiService.getAllApiNames();
+    // this.apiList=this.apiService.getAllApiNames();
     if (apiId) {
       this.api = this.apiService.getApiById(apiId);
       this.setActiveTab('overview');
+      this.contactForm.controls['api'].setValue(this.api!.name);
     }
-    this.registrationForm = this.fb.group({
-      dropdownField: [this.api?.name, Validators.required] // Set default value
-    });
   }
 
   setActiveTab(tabId: string) {
@@ -106,7 +113,7 @@ export class ApiDetailComponent implements OnInit {
         this.cdr.detectChanges();
         this.loadSwaggerSpec();
       }
-    }, 0.5);
+    }, 0);
     this.updateTableOfContents();
   }
 
@@ -151,8 +158,8 @@ export class ApiDetailComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.registrationForm.valid) {
-      console.log(this.registrationForm.value);
+    if (this.contactForm.valid) {
+      console.log(this.contactForm.value);
       // Handle form submission
     }
   }
@@ -300,9 +307,37 @@ export class ApiDetailComponent implements OnInit {
         }
         break;
 
-      case "contact":
-        // do nothing because already handled in template file
-        break;
+      // case "contact":
+      //   if (this.api?.contact){
+      //     let htmlContent=`
+      //     <div>
+      //     <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      //       <div class="form-group">
+      //         <label for="name">Name</label>
+      //         <input type="text" id="name" formControlName="name">
+      //       </div>
+      //       <div class="form-group">
+      //         <label for="email">Email</label>
+      //         <input type="email" id="email" formControlName="email">
+      //       </div>
+      //       <div class="form-group">
+      //         <label for="company">Company</label>
+      //         <input type="text" id="company" formControlName="company">
+      //       </div>
+      //       <div class="form-group">
+      //         <label for="useCase">Use Case</label>
+      //         <textarea id="useCase" formControlName="useCase"></textarea>
+      //       </div>
+      //       <div class="form-group">
+      //         <label for="fixedField">Predefined API</label>
+      //         <input id="fixedField" type="text" formControlName="fixedField" class="form-control" />
+      //       </div>    
+      //       <button type="submit" [disabled]="!registrationForm.valid">Submit</button>
+      //     </form>
+      //     </div>`;
+      //     return this.sanitizer.bypassSecurityTrustHtml(htmlContent);
+      //   }
+      //   break;
     }
     return this.sanitizer.bypassSecurityTrustHtml('<p>No content available for this tab.</p>');
   }
