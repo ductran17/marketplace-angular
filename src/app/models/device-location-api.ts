@@ -124,11 +124,13 @@ export const DEVICE_LOCATION_API: Api={
             content:[
                 {
                     title: "Term 1",
-                    content: `This is term 1.`
+                    content: `Users must ensure that any data submitted through this API complies with applicable laws and regulations. 
+                    Unauthorized or malicious use of the API is strictly prohibited.`
                 },
                 {
                     title: "Term 2",
-                    content: `This is term 2.`
+                    content: `Access to this API is provided on an "as-is" basis. 
+                    The provider is not responsible for any data loss, service disruption, or unintended consequences resulting from its use.`
                 }
             ]
         },
