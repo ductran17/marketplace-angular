@@ -1,2 +1,110 @@
 <div class="getting-started-container">
-  </div>
+  <aside class="getting-started-table-of-contents" *ngIf="showTableOfContents">
+    <h3>Table of Contents</h3>
+    <ul>
+      <li *ngFor="let item of tableOfContents" (click)="scrollToSection(item.target)">
+        {{ item.title }}
+      </li>
+    </ul>
+  </aside>
+  <main class="getting-started-main-content">
+    <div class="content-section">
+      <h2>Who is this guide for?</h2>
+      <p>This guide is designed for developers, solution architects, and business professionals who want to:</p>
+      <ul>
+        <li>Integrate Viettel APIs into their applications.</li>
+        <li>Set up and deploy Viettel's API-based products and services.</li>
+        <li>Manage existing connectivity and access support for Viettel's APIs.</li>
+      </ul>
+    </div>
+    <div class="content-section">
+      <h2>What you will learn</h2>
+      <p>This document will guide you:</p>
+      <ul>
+        <li>How to sign up for a free developer account to access test and live environments.</li>
+        <li>How to explore APIs, test them, build a sandbox app, and use Postman collections.</li>
+        <li>How to obtain access to live services and secure production credentials.</li>
+        <li>How to get development support and connect with the Dev team.</li>
+      </ul>
+    </div>
+    <div class="content-section">
+      <h2>Explore our site</h2>
+      <p>The Vodafone Developer Marketplace provides a range of APIs, tools, and resources. Key highlights include:</p>
+      <ul>
+        <li>Solutions: This section connects you with Vodafone’s API portfolios, showcasing their benefits and real-world use cases. 
+          Discover how these APIs can solve business challenges and bring your ideas to life.</li>
+        <li>APIs: This section lists available API products, categorized by their solution portfolio. 
+          Browse the API catalogue to find the best fit for your needs, or use the Postman collection from the Toolkit submenu to test them.</li>
+      </ul>
+      <p>For each API, you’ll find:</p>
+      <ul>
+        <li>A detailed overview, including its purpose and potential applications.</li>
+        <li>OpenAPI (Swagger) documentation for seamless integration.</li>
+        <li>Access the Sandbox for testing</li>
+        <li>Support: Get help quickly through the Support page, which includes a Contact Us section for direct assistance via the Developer Interest Form. 
+          The FAQs and Troubleshooting section offers filterable solutions to common issues, helping you resolve problems efficiently.</li>
+      </ul>
+    </div>
+    <div class="content-section">
+      <h2>Account Registration</h2>
+      <p>You can explore Vodafone Developer Portal APIs without signing up. 
+        However, registering for a free developer account is recommended, as it grants access to the sandbox environment and allows your organization to request production access through the portal or by contacting Vodafone.</p>
+      <ol>
+        <li>Click <a href="#">Register</a>. <span class="note">This is located at the header of the website.</span></li>
+        <img src="assets/images/getting-started/sign-up.png" alt="Viettel login screen" class="login-image">
+        <li>Fill out the Create account fields:
+          <ul>
+            <li>Last name and First name</li>
+            <li>Phone number</li>
+            <li>New password and Confirm password fields</li>
+          </ul>
+        </li>
+        <li>Review and accept the <strong>Terms and Conditions</strong> by marking the checkbox, then click <strong>Continue</strong>.</li>
+        <li>On the page that appears, click Got it. You will be logged in automatically.</li>
+      </ol>
+    </div>
+    <div class="content-section">
+      <h2>Using Sandbox environment</h2>
+      <p>After creating account and logging in, you are able to use the Sandbox environment.
+        To start testing Vodafone APIs in the sandbox environment, you must create a sandbox application on the Vodafone Developer Marketplace. 
+        These applications enable you to test API features and obtain the necessary credentials, such as API keys, to use Vodafone’s Postman collections. 
+        These credentials are crucial for safely exploring and integrating APIs before moving to production. Once you’re familiar with the APIs, you can proceed with building your application for live deployment.
+      </p>
+      <ol>
+        <li>Enter Sandbox environment</li>
+        <img src="assets/images/getting-started/sandbox.png" alt="Sandbox Environment" class="sandbox-image">
+        <li>Create application by clicking button <strong>CREATE AN APP</strong></li>
+        <img src="assets/images/getting-started/create-app.png" alt="Sandbox App Creation" class="app-create-image">
+        <li>Fill relevent info for application and proceed:
+          <ul>
+            <li>Application Name</li>
+            <li>Description</li>
+            <li>Domain used by the application</li>
+          </ul>
+        </li>
+        <img src="assets/images/getting-started/edit-app.png" alt="Sandbox App Editting" class="app-edit-image">
+        <img src="assets/images/getting-started/edit-app-2.png" alt="Sandbox App Editting" class="app-edit-image">
+        <li>In the <strong>Subscription</strong> tab, search for the API you want and subscribe to the suitable API plan.</li>
+        <img src="assets/images/getting-started/subscribe-api.png" alt="Subscribe API" class="subscribe-api-image">
+        <li>Confirm all the detail of the app you have created and click <strong>CREATE AN APP</strong>.
+        Then your application is ready to use API.
+        </li>
+        <img src="assets/images/getting-started/finish-app.png" alt="Finish App" class="finish-app-image">
+        <li>Now you can test the API function with tool like Postman. 
+          Open Postman, fill in those information shown in image and send the request.
+          (All required information will be provided by us)
+        </li>
+        <img src="assets/images/getting-started/postman-fill.png" alt="Postman App" class="postman-app-image">
+        <li>From your side, you will see a Login form popup.
+          Fill in the information to get the authorization code.
+        </li>
+        <img src="assets/images/getting-started/autho-code.png" alt="Authorization Code" class="autho-code-image">
+        <li>Use this authorization code as exchange for Access Token.
+          You will need to include this Access Token in later API calling step.
+          To know more about how to use API and which methods each API support, please refer to the <strong>Documentation</strong> tab of each API.
+        </li>
+        <img src="assets/images/getting-started/access-token.png" alt="Access Token" class="access-token-image">
+      </ol>
+    </div>
+  </main>
+</div>
