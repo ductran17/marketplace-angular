@@ -26,9 +26,13 @@ export class SignUpComponent {
 
   initRegForm() {
     this.registrationForm = this.fb.group({
+      firstName: ["", Validators.required],
+      lastName: ["", Validators.required],
+      phoneNumber: ["", Validators.required],
       email: ["", [Validators.required, Validators.email]],
       password: ["", Validators.required],
-      confirmpassword: ["", Validators.required]
+      confirmpassword: ["", Validators.required],
+      terms: [false, Validators.requiredTrue]
     });
 }
 }

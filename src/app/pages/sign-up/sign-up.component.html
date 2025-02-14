@@ -1,25 +1,50 @@
-<div class="container">
+<div class="signup-container">
     <div class="row">
         <div class="col-12 col-md-8 offset-md-2">
+            <h2>Create account</h2>
+            <h3>Please provide relevent data in order to register your Viettel Open Gateway account</h3>
             <div class="card">
                 <div class="card-body">
                     <form [formGroup]="registrationForm" class="mx-auto">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control"
+                                formControlName="firstName" />
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control"
+                                formControlName="lastName" />
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone Number</label>
+                            <input type="text" class="form-control"
+                                formControlName="phoneNumber" />
+                        </div>
                         <div class="form-group">
                             <label for="email">Email address</label>
                             <input type="text" class="form-control" placeholder="example@mail.com"
                                 formControlName="email" />
                         </div>
                         <div class="form-group">
-                            <label for="email">Password</label>
+                            <label for="password">Password</label>
                             <input type="password" class="form-control" formControlName="password" />
                         </div>
                         <div class="form-group">
-                            <label for="email">Repeat your password</label>
+                            <label for="confirmpassword">Repeat your password</label>
                             <input type="password" class="form-control" formControlName="confirmpassword" />
                         </div>
-                        <button class="btn-primary btn btn-block" [disabled]="!registrationForm.valid">
-                            Register
-                        </button>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" formControlName="terms" id="terms" />
+                            <label class="form-check-label" for="terms">
+                                I have read and agree with the <a href="/terms" target="_blank">Terms and Conditions</a>
+                            </label>
+                        </div>
+                        <div class="register-button">
+                            <button class="button" routerLink="/sign-up" [disabled]="!registrationForm.valid">
+                                Register
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
