@@ -14,7 +14,7 @@
   gap: 20px;
   overflow: hidden;
   min-height: 400;
-  padding: 10px 10px;
+  padding: 10px 30px;
 }
 
 .nav-button {
@@ -43,6 +43,9 @@
     min-height: 200;
     padding: 15px 15px;
   }
+  .nav-button{
+    display: none;
+  }
 }
 
 /* For mobile phones */
@@ -52,5 +55,8 @@
     /* Changes to 1 column */
     min-height: 200;
     padding: 15px 15px;
+  }
+  .nav-button{
+    display: none;
   }
 }

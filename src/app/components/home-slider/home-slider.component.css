@@ -4,6 +4,7 @@
     width: 100%;
     max-height: 500px;
     overflow: hidden;
+    border-radius: 15px;
   }
   
   .slides {
@@ -81,4 +82,10 @@
   
   .dot.active {
     background: white;
+  }
+
+  @media (max-width: 900px) {
+    .slider-container {
+      border-radius: 0px;
+    }
   }
