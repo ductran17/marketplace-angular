@@ -1,6 +1,29 @@
+.api-catalog-container{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 .api-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
+    overflow: auto;
+  }
+
+  @media (max-width: 1300px) {
+    .api-grid {
+      grid-template-columns: repeat(2, 1fr);
+      min-height: 200px;
+      padding: 15px 15px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .api-grid {
+      grid-template-columns: 1fr;
+      min-height: 200px;
+      padding: 15px 15px;
+    }
   }

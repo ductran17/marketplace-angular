@@ -278,6 +278,14 @@
   background: #555;
 }
 
+/* .swagger-ui ul,
+.swagger-ui li {
+    white-space: normal !important;
+    word-break: break-word !important;
+    display: block !important;
+} */
+
+
 .collapsible-list li.selected {
   background-color: #007bff;
   color: #fff;
