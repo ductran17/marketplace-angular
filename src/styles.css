@@ -80,7 +80,7 @@ body {
 .nav-button:hover {
   background: var(--border-color);
 }
-Form
+/* Form */
 .form-group {
   margin-bottom: 20px;
 }
@@ -196,9 +196,9 @@ button[type="submit"]:disabled {
 }
 
 .swagger-ui * {
-  max-width: 100% !important; /* Ensures elements do not exceed parent width */
-  box-sizing: border-box !important; /* Includes padding and border in width calculation */
-  white-space: normal !important; /* Forces wrapping */
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  white-space: normal !important;
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
 }
