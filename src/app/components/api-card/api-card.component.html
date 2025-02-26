@@ -1,9 +1,14 @@
 <div class="api-card">
-    <img [src]="api.icon" [alt]="api.name">
+  <span class="box-tag" [ngClass]="getStatusClass(api.status)">
+    {{ api.status }}
+  </span>
+  <img [src]="api.icon" [alt]="api.name">
+  <div class="content">
     <h3>{{api.name}}</h3>
     <p>{{api.description}}</p>
-    <div class="buttons">
-      <a [href]="api.tryItFreeLink" class="try-free">Try it for free</a>
-      <a [routerLink]="['/apis', api.id]" class="learn-more">Learn more</a>
-    </div>
   </div>
+  <div class="buttons">
+    <a [href]="api.tryItFreeLink" class="try-free">Try it for free</a>
+    <a [routerLink]="['/apis', api.id]" class="learn-more">Learn more</a>
+  </div>
+</div>

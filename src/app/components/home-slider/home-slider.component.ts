@@ -19,11 +19,11 @@ export class HomeSliderComponent implements OnInit, OnDestroy {
       title: 'GSMA-Join-Banner-Image'
     },
     {
-      url: 'assets/images/Develop-Network-Banner-Image.png', // added extension
+      url: 'assets/images/Develop-Network-Banner-Image-1.png', // added extension
       title: 'Banner 2'
     },
     {
-      url: 'assets/images/Open-Gateway-Banner-Image.png', // added extension
+      url: 'assets/images/Open-Gateway-Banner-Image-1.png', // added extension
       title: 'Banner 2'
     }
   ];

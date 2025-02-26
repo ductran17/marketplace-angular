@@ -3,6 +3,7 @@ import {Api} from './api.model'
 export const DEVICE_LOCATION_API: Api={
     id: "device-location",
     name: "Device Location",
+    status: "Beta",
     description: "Prevent fraud with real-time location verification.",
     icon: "assets/images/icon/api/device-location.png",
     version: "v0.3.0",

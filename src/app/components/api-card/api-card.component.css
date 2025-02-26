@@ -1,44 +1,116 @@
 .api-card {
   background: white;
   border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+  padding-top: 10px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
   transition: transform 0.2s;
   min-width: 300px;
   height: auto;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+div.content {
+  text-align: center;
+}
+
 .api-card img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 5px;
 }
+
 .api-card h3 {
-  line-height: 1.2; /* This determines the space between lines */
+  line-height: 1.2;
+  /* This determines the space between lines */
   min-height: calc(2 * 1.5em);
+  margin-bottom: 0;
+}
+
+.api-card p {
+  margin-bottom: 0;
+}
+
+.box-tag {
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 15px;
+  padding: 1px 8px;
+  display: inline-block;
+  margin-bottom: 10px;
+  /* border: 1px solid #06f;
+  color: #06f; */
+  border-radius: 20px;
+  text-align: center;
+  margin-left: auto;
+}
+
+.beta {
+  border-color: red;
+  color: red;
+}
+
+.beta,
+.alpha {
+  border: 2px solid green;
+  color: green;
+}
+
+.in-development {
+  border: 2px solid red;
+  color: red;
+}
+
+.default {
+  border: 2px solid red;
+  color: red;
 }
 
 .api-card:hover {
   transform: translateY(-5px);
 }
+
 .buttons {
+  width: 95%;
   display: flex;
-  gap: 10px;
+  /* gap: 10px; */
   margin-top: 15px;
   justify-content: space-between;
 }
-.buttons a{
+
+.buttons a {
   width: 46%;
   align-items: center;
 }
-.try-free, .learn-more {
+
+.try-free,
+.learn-more {
   padding: 8px 16px;
   border-radius: 4px;
+  /* text-decoration: none; */
   text-decoration: none;
+  white-space: nowrap;
+  /* Prevents text wrapping */
+  font-size: 14px;
+  /* Adjust this value as needed */
+  display: inline-block;
+  /* Ensures consistent block behavior */
+  min-width: 120px;
+  /* Gives buttons consistent width */
+  text-align: center;
 }
+
 .try-free {
   background: #ff0000;
   color: white;
 }
+
 .learn-more {
   border: 1px solid #ff0000;
   color: #ff0000;

@@ -1,6 +1,7 @@
 export interface Api {
     id: string;
     name: string;
+    status: string;
     description?: string;
     icon: string;
     version: string;
