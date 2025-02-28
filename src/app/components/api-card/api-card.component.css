@@ -27,6 +27,7 @@ div.content {
 }
 
 .api-card h3 {
+  font-weight: 600;
   line-height: 1.2;
   /* This determines the space between lines */
   min-height: calc(2 * 1.5em);
@@ -35,6 +36,12 @@ div.content {
 
 .api-card p {
   margin-bottom: 0;
+}
+
+.learn-more.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .box-tag {
@@ -92,12 +99,14 @@ div.content {
 .try-free,
 .learn-more {
   padding: 8px 16px;
-  border-radius: 4px;
+  border-radius: 12px;
+  border-bottom-left-radius: 0;
   /* text-decoration: none; */
   text-decoration: none;
   white-space: nowrap;
   /* Prevents text wrapping */
   font-size: 14px;
+  font-weight: 600;
   /* Adjust this value as needed */
   display: inline-block;
   /* Ensures consistent block behavior */

@@ -9,6 +9,7 @@
   </div>
   <div class="buttons">
     <a [href]="api.tryItFreeLink" class="try-free">Try it for free</a>
-    <a [routerLink]="['/apis', api.id]" class="learn-more">Learn more</a>
+    <a [routerLink]="api.status !== 'In Development' ? ['/apis', api.id] : []"
+      [class.disabled]="api.status === 'In Development'" class="learn-more">Learn more</a>
   </div>
 </div>

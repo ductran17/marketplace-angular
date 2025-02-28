@@ -36,6 +36,10 @@
   color: black;
 }
 
+.featured-apis h2 {
+  font-weight: 600;
+}
+
 @media (max-width: 900px) {
   .api-container {
     grid-template-columns: repeat(2, 1fr);
@@ -43,7 +47,8 @@
     min-height: 200;
     padding: 15px 15px;
   }
-  .nav-button{
+
+  .nav-button {
     display: none;
   }
 }
@@ -56,7 +61,8 @@
     min-height: 200;
     padding: 15px 15px;
   }
-  .nav-button{
+
+  .nav-button {
     display: none;
   }
 }

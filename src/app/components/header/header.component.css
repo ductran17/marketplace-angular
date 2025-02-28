@@ -31,6 +31,10 @@ nav {
   margin: 0 auto;
 }
 
+.logo {
+  margin-right: 35px;
+}
+
 .logo a {
   font-size: 1.5rem;
   font-weight: bold;
@@ -66,8 +70,8 @@ nav {
 
 .nav-links ul li a {
   text-decoration: none;
-  color: #333;
-  font-weight: 500;
+  color: #494949;
+  font-weight: 650;
   /* padding: 0.5rem 1rem; */
   transition: color 0.3s ease;
 }
@@ -86,7 +90,7 @@ nav {
   color: white;
   display: inline-block;
   font-size: 18px;
-  margin-left: 26px;
+  margin-left: 6px;
 }
 
 .desktop_menu ul li:hover {
@@ -202,7 +206,7 @@ nav {
     z-index: 50 !important;
     min-width: 10px;
     min-height: 10px;
-    margin-left:10vw;
+    margin-left: 10vw;
   }
 
   .menu-icon i {

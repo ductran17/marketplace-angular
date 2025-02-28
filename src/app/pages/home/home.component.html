@@ -1,23 +1,24 @@
 <div class="home-container">
-    <!-- <h1>{{title}}</h1>
+  <!-- <h1>{{title}}</h1>
     <p>{{description}}</p> -->
-    <div class="image-container">
-      <!-- <img src="assets/images/home-banner.jpg" alt="Platform Overview"> -->
-    </div>
-    <div class="content">
-      <app-home-slider></app-home-slider>
-      <!-- Featured API -->
-      <section class="featured-apis">
-        <h2>Our APIs</h2>
-        <div class="api-slider">
-          <button class="nav-button prev" (click)="previousSlide()">&lt;</button>
-          <div class="api-container">
-            <app-api-card *ngFor="let api of visibleApis" [api]="api"></app-api-card>
-          </div>
-          <button class="nav-button next" (click)="nextSlide()">&gt;</button>
-        </div>
-        <a routerLink="/apis" class="view-all">View All APIs</a>
-      </section>
-      <!-- Featured API -->
-    </div>
+  <div class="image-container">
+    <!-- <img src="assets/images/home-banner.jpg" alt="Platform Overview"> -->
   </div>
+  <div class="content">
+    <app-home-slider></app-home-slider>
+    <!-- Featured API -->
+    <section class="featured-apis">
+      <h2>Our APIs</h2>
+      <div class="api-slider">
+        <button class="nav-button prev" (click)="previousSlide()">&lt;</button>
+        <div class="api-container">
+          <app-api-card *ngFor="let api of visibleApis" [api]="api"></app-api-card>
+        </div>
+        <button class="nav-button next" (click)="nextSlide()">&gt;</button>
+      </div>
+      <a routerLink="/apis" class="view-all">View All APIs</a>
+    </section>
+    <!-- Featured API -->
+    <app-community-section></app-community-section>
+  </div>
+</div>

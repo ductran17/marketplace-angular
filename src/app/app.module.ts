@@ -14,6 +14,7 @@ import { routes } from './app.routes';
 import { HomeSliderComponent } from "./components/home-slider/home-slider.component"; // Import routes
 import { ApiDetailComponent } from './components/api-detail/api-detail.component';
 import { ApiCardComponent } from './components/api-card/api-card.component';
+import { CommunitySectionComponent } from './components/community/community.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ApiCardComponent } from './components/api-card/api-card.component';
     HomeSliderComponent,
     ApiDetailComponent,
     ApiCardComponent,
-    SupportComponent
+    SupportComponent,
+    CommunitySectionComponent
 ],
   providers: [],
   bootstrap: []
