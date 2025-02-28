@@ -8,6 +8,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
   transition: transform 0.2s;
   min-width: 300px;
+  min-height: 300px;
   height: auto;
   justify-content: center;
   display: flex;
@@ -30,12 +31,13 @@ div.content {
   font-weight: 600;
   line-height: 1.2;
   /* This determines the space between lines */
-  min-height: calc(2 * 1.5em);
+  min-height: calc(2 * 1.4em);
   margin-bottom: 0;
 }
 
 .api-card p {
   margin-bottom: 0;
+  min-height: calc(2 * 1.4em);
 }
 
 .learn-more.disabled {
@@ -58,11 +60,6 @@ div.content {
   margin-left: auto;
 }
 
-.beta {
-  border-color: red;
-  color: red;
-}
-
 .beta,
 .alpha {
   border: 2px solid green;
@@ -70,13 +67,13 @@ div.content {
 }
 
 .in-development {
-  border: 2px solid red;
-  color: red;
+  border: 2px solid #ed234f;
+  color: #ed234f;
 }
 
 .default {
-  border: 2px solid red;
-  color: red;
+  border: 2px solid #ed234f;
+  color: #ed234f;
 }
 
 .api-card:hover {

@@ -81,26 +81,20 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .three-image-section {
-        height: auto;
+    .community-section {
+        height: 360px;
+        border-radius: 0;
     }
 
     .image-container {
         flex-direction: column;
     }
 
-    .image-group {
-        height: 120px;
+    .left-image {
+        display: none;
     }
 
-    .overlay-content {
-        position: relative;
-        transform: none;
-        top: 0;
-        left: 0;
-        padding: 2rem;
-        background-color: rgba(0, 0, 0, 0.7);
-        width: 100%;
-        max-width: 100%;
+    .right-image {
+        display: none;
     }
 }

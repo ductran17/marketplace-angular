@@ -1,14 +1,17 @@
 .featured-apis {
-  padding: 40px;
+  padding: 35px;
+  align-items: center;
 }
 
 .api-slider {
+  width: 100%;
   position: relative;
   display: flex;
   align-items: center;
 }
 
 .api-container {
+  align-items: center;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
@@ -51,11 +54,16 @@
   .nav-button {
     display: none;
   }
+
+  .featured-apis {
+    padding: 20px;
+  }
 }
 
 /* For mobile phones */
 @media (max-width: 768px) {
   .api-container {
+    width: 100%;
     grid-template-columns: 1fr;
     /* Changes to 1 column */
     min-height: 200;
@@ -64,5 +72,9 @@
 
   .nav-button {
     display: none;
+  }
+
+  .featured-apis {
+    padding: 10px;
   }
 }

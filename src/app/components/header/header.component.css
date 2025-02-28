@@ -122,6 +122,10 @@ nav {
 }
 
 @media (max-width: 768px) {
+  .logo {
+    margin-right: 0;
+  }
+
   .main-header .logo img {
     max-width: 100px;
     /* Smaller logo size */
