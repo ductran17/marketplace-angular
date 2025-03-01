@@ -1,18 +1,18 @@
 import {Api} from './api.model'
 
-export const DEVICE_LOCATION_API: Api={
-    id: "device-location",
-    name: "Device Location",
-    status: "Beta",
-    description: "Prevent fraud with real-time location verification",
-    icon: "assets/images/icon/api/device-location.png",
+export const POPULATION_DENSITY_DATA: Api={
+    id: "population-density-data",
+    name: "Population Density Data",
+    status: "In Development",
+    description: "Provide the current and future estimate of the connected devices in the requested area",
+    icon: "assets/images/icon/api/other.png",
     version: "v0.3.0",
     tryItFreeLink: '#',
     learnMoreLink: '#',
     overview: {
         definition: {
-            title: "Definition",
-            content: `The standardised Device Location Verification API provides the option of verifying the geographical location of a given SIM-based device and validating whether it’s within a requested geographical area without  spoofing or GPS theft.
+            title: "definition",
+            content: `The standardised Device Location Verification API provides the option of  verifying the geographical location of a given SIM-based device and  validating whether it’s within a requested geographical area without  spoofing or GPS theft.
             \n This solution validates the location of a device to enable services or allow transactions by verifying the location.`
         },
         useFor: {
@@ -29,13 +29,13 @@ export const DEVICE_LOCATION_API: Api={
                     In  this way, any location-dependent transactions can be verified to reduce  the risks related to account takeover and other types of identity fraud.
                     \n The digitalisation of transactions  is increasing, however, every digital transaction takes place in a real  physical space. 
                     The Device Location Verification API makes it possible  to connect the two worlds, verifying that a user's device is actually  located where the transaction is taking place.`,
-                    image: 'assets/images/device-location/usecase1.jpg'
+                    image: '#'
                 },
                 {
                     title: "Fraud prevention in gaming, retail and distribution",
                     content:`Often, gaming, retail or goods distribution companies make launches restricted to a specific region or country.  
                     Fraud detection based on false locations or account spoofing allows  companies to maintain control of their services by validating where  their customers and fleets are located thanks to the integration of the Device Location Verification API.`,
-                    image: 'assets/images/device-location/usecase2.jpg'
+                    image: '#'
                 }]
             },
         caseStudies: {
@@ -48,7 +48,7 @@ export const DEVICE_LOCATION_API: Api={
                     One of the  areas for improvement in the banking applications is the process of  signing up for a new product or opening a new account. 
                     Thanks to the integration of Device Location Verification, Daycoval can ask Vivo to  verify the location of its users to automate steps when performing  different banking operations. 
                     This allows for the development of new, smarter and more efficient fintech services, increasing customer satisfaction.`,
-                    image: "assets/images/device-location/casestudy1.png"
+                    image: "#"
                 },
                 {
                     title: "Drone fleet control",
@@ -56,7 +56,7 @@ export const DEVICE_LOCATION_API: Api={
                     Ericsson and Vonage are teaming up to offer developers the ability to integrate Open Gateway solutions to enhance their users experience of Open Gateway applications. 
                     By integrating the  Device Location Verification API, advanced network capabilities can be incorporated to quickly and easily verify a drone's position. 
                     This makes it possible to develop new applications that provide maximum security  in controlling drone fleets.`,
-                    image: "assets/images/device-location/casestudy2.jpg"
+                    image: "#"
                 }]
             },
     },
@@ -95,7 +95,7 @@ export const DEVICE_LOCATION_API: Api={
         },
         authorization: {
             title: "Authorization and authentication",
-            content: `The "Camara Security and Interoperability Profile" provides details  on how a client requests an access token. Please refer to Identify and  Consent Management for the released version of the Profile.
+            content: `The "Camara Security and Interoperability Profile" provides details  on how a client requests an access token. Please refer to Identify and  Consent Management  (https://github.com/camaraproject/IdentityAndConsentManagement/) for the released version of the Profile.
             Which specific authorization flows are to be used will be determined  during onboarding process, happening between the API Client and the API  Provider, taking into account the declared purpose for accessing the  API, while also being subject to the prevailing legal framework dictated by local legislation.
             It is important to remark that in cases where personal user data is  processed by the API, and users can exercise their rights through  mechanisms such as opt-in and/or opt-out, the use of 3-legged access  tokens becomes mandatory. This measure ensures that the API remains in  strict compliance with user privacy preferences and regulatory  obligations, upholding the principles of transparency and user-centric  data control.`
         },
@@ -114,10 +114,10 @@ export const DEVICE_LOCATION_API: Api={
             Restrictions for tokens without an associated authenticated identifier:
             For scenarios which do not have a single device identifier  associated to the token during the authentication flow, e.g. 2-legged  access tokens, the device object MUST be provided in the  API request. This ensures that the device identification is explicit and valid for each API call made with these tokens.`
         },
-        sandboxSwagger: "/assets/images/device-location/openapi.json"
+        sandboxSwagger: "#"
     },
     sandbox:{
-        sandboxUrl:"#"
+        sandboxUrl: "#"
     },
     term: {
         terms:{
@@ -125,13 +125,11 @@ export const DEVICE_LOCATION_API: Api={
             content:[
                 {
                     title: "Term 1",
-                    content: `Users must ensure that any data submitted through this API complies with applicable laws and regulations. 
-                    Unauthorized or malicious use of the API is strictly prohibited.`
+                    content: `This is term 1.`
                 },
                 {
                     title: "Term 2",
-                    content: `Access to this API is provided on an "as-is" basis. 
-                    The provider is not responsible for any data loss, service disruption, or unintended consequences resulting from its use.`
+                    content: `This is term 2.`
                 }
             ]
         },

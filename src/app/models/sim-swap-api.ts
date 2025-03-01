@@ -4,7 +4,7 @@ export const SIM_SWAP_API: Api={
     id: "sim-swap",
     name: "Sim Swap",
     status: "In Development",
-    description: "Check real-time SIM card activation to enhance security and prevent fraud.",
+    description: "Check real-time SIM card activation to enhance security and prevent fraud",
     icon: "assets/images/icon/api/sim-swap.png",
     version: "v0.3.0",
     tryItFreeLink: '#',

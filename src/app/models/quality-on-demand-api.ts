@@ -4,7 +4,7 @@ export const QUALITY_ON_DEMAND_API: Api={
     id: "quality-on-demand",
     name: "Quality on Demand",
     status: "In Development",
-    description: "Ensure optimum connectivity for your applications.",
+    description: "Ensure optimum connectivity for your applications",
     icon: "assets/images/icon/api/quality-on-demand.png",
     version: "v0.3.0",
     tryItFreeLink: '#',

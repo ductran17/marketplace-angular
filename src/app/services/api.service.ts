@@ -11,7 +11,20 @@ export class ApiService {
     ApiModels.DEVICE_REACHABILITY_STATUS_API,
     ApiModels.NUMBER_VERIFICATION_API,
     ApiModels.QUALITY_ON_DEMAND_API,
-    ApiModels.SIM_SWAP_API
+    ApiModels.SIM_SWAP_API,
+    ApiModels.DEVICE_ROAMING_STATUS,
+    ApiModels.DEVICE_IDENTIFIER,
+    ApiModels.TRAFFIC_INFLUENCE,
+    ApiModels.DEVICE_SWAP,
+    ApiModels.SLICE_BOOKING,
+    ApiModels.REGION_DEVICE_COUNT,
+    ApiModels.POPULATION_DENSITY_DATA,
+    ApiModels.DEVICE_VISIT_LOCATION,
+    ApiModels.MOST_FREQUENT_LOCATION,
+    ApiModels.DEVICE_QUALITY_INDICATOR,
+    ApiModels.DEVICE_DATA_VOLUME,
+    ApiModels.SUBSCRIPTION_STATUS,
+    ApiModels.DEDICATED_NETWORKS
   ];
 
   getAllApis(): Api[] {

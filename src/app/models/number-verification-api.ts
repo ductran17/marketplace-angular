@@ -4,7 +4,7 @@ export const NUMBER_VERIFICATION_API: Api={
     id: "number-verification",
     name: "Number Verification",
     status: "In Development",
-    description: "Verify phone numbers to enhance user authentication processes.",
+    description: "Verify phone numbers to enhance user authentication processes",
     icon: "assets/images/icon/api/number-verification.png",
     version: "v0.3.0",
     tryItFreeLink: '#',

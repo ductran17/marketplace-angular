@@ -4,7 +4,7 @@ export const DEVICE_ROAMING_STATUS: Api={
     id: "device-roaming-status",
     name: "Device Roaming Status",
     status: "In Development",
-    description: "Ensure optimum connectivity for your applications.",
+    description: "Provide roaming status of an user",
     icon: "assets/images/icon/api/device-roaming-status.png",
     version: "v0.3.0",
     tryItFreeLink: '#',
