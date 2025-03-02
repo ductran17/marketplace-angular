@@ -21,11 +21,11 @@ export interface ApiOverview{
     title: string,
     content: ApiSection[];
   }
-  caseStudies: {
+  caseStudies?: {
     title: string;
     content: ApiSection[];
   }
-  [key: string]: ApiSection | { title: string; content: ApiSection[] }; // Added index signature
+  [key: string]: ApiSection | { title: string; content: ApiSection[] }| undefined; // Added index signature
 }
 
 export interface ApiDocumentation{

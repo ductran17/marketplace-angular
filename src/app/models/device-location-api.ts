@@ -3,7 +3,7 @@ import {Api} from './api.model'
 export const DEVICE_LOCATION_API: Api={
     id: "device-location",
     name: "Device Location",
-    status: "Beta",
+    status: "Ready",
     description: "Prevent fraud with real-time location verification",
     icon: "assets/images/icon/api/device-location.png",
     version: "v0.3.0",
@@ -38,27 +38,27 @@ export const DEVICE_LOCATION_API: Api={
                     image: 'assets/images/device-location/usecase2.jpg'
                 }]
             },
-        caseStudies: {
-            title: "Case studies",
-            content: [
-                {
-                    title: "Smarter banks",
-                    content: `Daycoval is one of the most recognised financial institutions in Brazil, with more than USD 13 billion in assets. 
-                    Thanks to Open Gateway, it has begun collaborating with Vivo, Telefonica's carrier in Brazil, to explore the benefits that telco APIs can have in bringing a better user experience to its digital services. 
-                    One of the  areas for improvement in the banking applications is the process of  signing up for a new product or opening a new account. 
-                    Thanks to the integration of Device Location Verification, Daycoval can ask Vivo to  verify the location of its users to automate steps when performing  different banking operations. 
-                    This allows for the development of new, smarter and more efficient fintech services, increasing customer satisfaction.`,
-                    image: "assets/images/device-location/casestudy1.png"
-                },
-                {
-                    title: "Drone fleet control",
-                    content: `The delivery of parcels by drone requires reliable location control to ensure the location of the devices in real time with maximum security. 
-                    Ericsson and Vonage are teaming up to offer developers the ability to integrate Open Gateway solutions to enhance their users experience of Open Gateway applications. 
-                    By integrating the  Device Location Verification API, advanced network capabilities can be incorporated to quickly and easily verify a drone's position. 
-                    This makes it possible to develop new applications that provide maximum security  in controlling drone fleets.`,
-                    image: "assets/images/device-location/casestudy2.jpg"
-                }]
-            },
+        // caseStudies: {
+        //     title: "Case studies",
+        //     content: [
+        //         {
+        //             title: "Smarter banks",
+        //             content: `Daycoval is one of the most recognised financial institutions in Brazil, with more than USD 13 billion in assets. 
+        //             Thanks to Open Gateway, it has begun collaborating with Vivo, Telefonica's carrier in Brazil, to explore the benefits that telco APIs can have in bringing a better user experience to its digital services. 
+        //             One of the  areas for improvement in the banking applications is the process of  signing up for a new product or opening a new account. 
+        //             Thanks to the integration of Device Location Verification, Daycoval can ask Vivo to  verify the location of its users to automate steps when performing  different banking operations. 
+        //             This allows for the development of new, smarter and more efficient fintech services, increasing customer satisfaction.`,
+        //             image: "assets/images/device-location/casestudy1.png"
+        //         },
+        //         {
+        //             title: "Drone fleet control",
+        //             content: `The delivery of parcels by drone requires reliable location control to ensure the location of the devices in real time with maximum security. 
+        //             Ericsson and Vonage are teaming up to offer developers the ability to integrate Open Gateway solutions to enhance their users experience of Open Gateway applications. 
+        //             By integrating the  Device Location Verification API, advanced network capabilities can be incorporated to quickly and easily verify a drone's position. 
+        //             This makes it possible to develop new applications that provide maximum security  in controlling drone fleets.`,
+        //             image: "assets/images/device-location/casestudy2.jpg"
+        //         }]
+        //     },
     },
     documentation:{
         introduction: {

@@ -171,7 +171,7 @@ export class ApiDetailComponent implements OnInit {
         if (this.api?.overview) { // Use ?. to prevent errors
           let htmlContent = '';
           for (const section in this.api.overview) {
-            if (this.api.overview.hasOwnProperty(section)) {
+            if (this.api.overview[section]) {
               if (section == "definition" || section =="useFor"){
               const sectionData = this.api.overview[section];
               htmlContent += `

@@ -3,7 +3,7 @@ import {Api} from './api.model'
 export const QUALITY_ON_DEMAND_API: Api={
     id: "quality-on-demand",
     name: "Quality on Demand",
-    status: "In Development",
+    status: "Ready",
     description: "Ensure optimum connectivity for your applications",
     icon: "assets/images/icon/api/quality-on-demand.png",
     version: "v0.3.0",
@@ -11,110 +11,95 @@ export const QUALITY_ON_DEMAND_API: Api={
     learnMoreLink: '#',
     overview: {
         definition: {
-            title: "definition",
-            content: `The standardised Device Location Verification API provides the option of  verifying the geographical location of a given SIM-based device and  validating whether it’s within a requested geographical area without  spoofing or GPS theft.
-            \n This solution validates the location of a device to enable services or allow transactions by verifying the location.`
+            title: "Definition",
+            content: `The “Quality-On-Demand” (QoD) API provides a programmable interface for developers to request stable latency or prioritized throughput managed by networks. This API abstracts the complexity of underlying network technologies, such as 4G/5G systems, allowing developers to focus on enhancing user experiences for applications that demand high-quality network communication.`
         },
         useFor: {
             title: "What can it be used for?",
-            content: `The standardised Device Location Verification  API provides the option of verifying the geographical location of a  given SIM-based device and validating whether it is within a requested  geographical area without spoofing or GPS.
-            \n This solution validates the location of a device to enable services or allow transactions by verifying the location.`
+            content: `
+            •	QoS Control (Quality of Service Control): Provides the ability to adjust network quality based on demand, ensuring a stable and optimized connection for various use cases.<br>
+            •	Performance Optimization: Supports services that require low latency and high bandwidth, such as IoT, gaming, video streaming, or critical enterprise applications.<br>
+            •	Security & Reliability: Enhances data transmission security, reducing the risk of connection loss and service disruptions.<br>`
         },
         useCases: {
             title: "Use cases",
             content: [
                 {
-                    title: "Security in location-dependent transactions",
-                    content:`This makes it possible to strengthen the security of a transaction, for example, when a customer makes a payment through a  POS terminal, or performs a transaction at an ATM, by validating that  the user's location is the same as that of the POS terminal or ATM. 
-                    In  this way, any location-dependent transactions can be verified to reduce  the risks related to account takeover and other types of identity fraud.
-                    \n The digitalisation of transactions  is increasing, however, every digital transaction takes place in a real  physical space. 
-                    The Device Location Verification API makes it possible  to connect the two worlds, verifying that a user's device is actually  located where the transaction is taking place.`,
-                    image: '#'
+                    title: "Faster and More Stable Online Gaming",
+                    content:`Enhances online gaming by dynamically detecting network quality drops and activating connection optimizations in real time. When latency spikes, packet loss increases, or bandwidth fluctuates, the API proactively engages network enhancements such as prioritized traffic routing or adaptive bandwidth allocation. This ensures a seamless gaming experience with lower lag, improved stability, and minimized disruptions. By leveraging intelligent network monitoring and on-demand adjustments, gamers enjoy consistently high performance, making competitive and immersive gameplay more reliable and responsive.`,
+                    image: 'assets/images/quality-on-demand/usecase1.jpg'
                 },
                 {
-                    title: "Fraud prevention in gaming, retail and distribution",
-                    content:`Often, gaming, retail or goods distribution companies make launches restricted to a specific region or country.  
-                    Fraud detection based on false locations or account spoofing allows  companies to maintain control of their services by validating where  their customers and fleets are located thanks to the integration of the Device Location Verification API.`,
-                    image: '#'
-                }]
-            },
-        caseStudies: {
-            title: "Case studies",
-            content: [
-                {
-                    title: "Smarter banks",
-                    content: `Daycoval is one of the most recognised financial institutions in Brazil, with more than USD 13 billion in assets. 
-                    Thanks to Open Gateway, it has begun collaborating with Vivo, Telefonica's carrier in Brazil, to explore the benefits that telco APIs can have in bringing a better user experience to its digital services. 
-                    One of the  areas for improvement in the banking applications is the process of  signing up for a new product or opening a new account. 
-                    Thanks to the integration of Device Location Verification, Daycoval can ask Vivo to  verify the location of its users to automate steps when performing  different banking operations. 
-                    This allows for the development of new, smarter and more efficient fintech services, increasing customer satisfaction.`,
-                    image: "#"
+                    title: "Enhanced Entertainment Experience",
+                    content:`Enhances the entertainment experience by ensuring seamless streaming of live sports events, replays, and summaries. It dynamically adjusts network performance to prevent buffering, latency, or quality drops, delivering smooth and uninterrupted content. By optimizing bandwidth and prioritizing streaming traffic, the API enables viewers to enjoy high-definition replays and event highlights without disruptions, enhancing engagement and immersion in live sports coverage.`,
+                    image: 'assets/images/quality-on-demand/usecase2.jpg'
                 },
                 {
-                    title: "Drone fleet control",
-                    content: `The delivery of parcels by drone requires reliable location control to ensure the location of the devices in real time with maximum security. 
-                    Ericsson and Vonage are teaming up to offer developers the ability to integrate Open Gateway solutions to enhance their users experience of Open Gateway applications. 
-                    By integrating the  Device Location Verification API, advanced network capabilities can be incorporated to quickly and easily verify a drone's position. 
-                    This makes it possible to develop new applications that provide maximum security  in controlling drone fleets.`,
-                    image: "#"
-                }]
+                    title: "VR-Assisted Surgery",
+                    content:`Improves VR-assisted surgery by optimizing network latency and bandwidth for XR (Extended Reality) technology. It ensures real-time, high-fidelity visuals and precise remote interactions by dynamically adjusting connectivity to prevent lag or interruptions. This enables surgeons to perform remote procedures with greater accuracy, responsiveness, and reliability, improving patient outcomes and advancing telemedicine capabilities.`,
+                    image: 'assets/images/quality-on-demand/usecase3.jpg'
+                },
+                {
+                    title: "Advanced Online Learning",
+                    content:`Optimizes advanced online learning by ensuring stable, high-quality video for XR-based seminars and interactive educational experiences. By dynamically adjusting network performance, it minimizes latency, buffering, and quality fluctuations, allowing seamless engagement in virtual classrooms. This enables students and educators to interact in immersive learning environments with clarity and reliability.`,
+                    image: 'assets/images/quality-on-demand/usecase4.jpg'
+                },
+                {
+                    title: "Industry 4.0 Digitalization",
+                    content:`Supports Industry 4.0 digitalization by enabling real-time interaction with digital twins, automated monitoring, and drone-based delivery. By optimizing network performance, it ensures low-latency communication and stable connectivity for seamless data exchange. This allows businesses to enhance operational efficiency, improve predictive maintenance, and streamline logistics with reliable and responsive industrial automation.`,
+                    image: 'assets/images/quality-on-demand/usecase5.jpg'
+                },
+                {
+                    title: "Next-Generation Design & Construction",
+                    content:`Boosts next-generation design and construction by ensuring seamless AR visualization, reducing errors, and improving collaboration. By optimizing network performance, it enables real-time, high-resolution rendering of architectural models, allowing teams to detect issues early, streamline workflows, and enhance decision-making with accurate, immersive project representations.`,
+                    image: 'assets/images/quality-on-demand/usecase6.jpg'
+                },
+            ]
             },
+        // caseStudies: {
+        //     title: "Case studies",
+        //     content: [
+        //         {
+        //             title: "Smarter banks",
+        //             content: `Daycoval is one of the most recognised financial institutions in Brazil, with more than USD 13 billion in assets. 
+        //             Thanks to Open Gateway, it has begun collaborating with Vivo, Telefonica's carrier in Brazil, to explore the benefits that telco APIs can have in bringing a better user experience to its digital services. 
+        //             One of the  areas for improvement in the banking applications is the process of  signing up for a new product or opening a new account. 
+        //             Thanks to the integration of Device Location Verification, Daycoval can ask Vivo to  verify the location of its users to automate steps when performing  different banking operations. 
+        //             This allows for the development of new, smarter and more efficient fintech services, increasing customer satisfaction.`,
+        //             image: "#"
+        //         },
+        //         {
+        //             title: "Drone fleet control",
+        //             content: `The delivery of parcels by drone requires reliable location control to ensure the location of the devices in real time with maximum security. 
+        //             Ericsson and Vonage are teaming up to offer developers the ability to integrate Open Gateway solutions to enhance their users experience of Open Gateway applications. 
+        //             By integrating the  Device Location Verification API, advanced network capabilities can be incorporated to quickly and easily verify a drone's position. 
+        //             This makes it possible to develop new applications that provide maximum security  in controlling drone fleets.`,
+        //             image: "#"
+        //         }]
+        //     },
     },
     documentation:{
         introduction: {
             title: 'Introduction',
-            content: `With this API, API consumers can retrieve the area where a certain user device is localized. The area provided in the response could be described:
-            by a circle determined by coordinates (latitude and longitude) and a radius.
-            by a simple polygon delimited by segments connecting consecutively  an array of coordinates (points). The last point connects to the first  point to delimit a closed shape bounded with straight sides.
-            The retrieved shape depends on the network conditions at the device's location and any of the supported shapes could be received.
-            The requester could optionally ask for a freshness of the localization information by providing a maxAge ("I want a location not older than 600 seconds").
-            The result accuracy depends on the network's ability and accuracy to locate the device.
-            Additionally to location information, the answer will also provide indication about the location time.
-            Location retrieval API could be useful in scenarios such as:
-            Fraud protection to ensure a given user is located in the region, country or location authorized for financial transactions
-            Verify the GPS coordinates reported by the app on a device to  ensure the GPS was not faked e.g. for content delivery with regional  restrictions
-            Contextual-based advertising, to trigger advertising after verifying the device is in the area of interest
-            Smart Mobility (Vehicle/bikes renting): obtain the location of a vehicle/bike to guarantee they are rented correctly
-            Note: Location is in most jurisdictions considered  to be sensitive data and thereby consent by device owner/user must be  verified before providing it to the developer.`
+            content: `The QoD (Quality on Demand) Camara API allows API Consumers to request and manage network quality adjustments based on specific needs. The API provides a mechanism to dynamically optimize network conditions for various applications, ensuring enhanced performance, reduced latency, and improved connectivity. The requester can specify parameters such as required bandwidth, latency constraints, or priority levels for different services (e.g., gaming, video streaming, remote work). The system evaluates network conditions and applies optimizations accordingly. The API is beneficial for scenarios like online gaming, ensuring low-latency, lag-free experiences; video streaming, guaranteeing smooth playback with minimal buffering; enterprise applications, enhancing real-time collaboration and remote work efficiency; and IoT and Smart Mobility, maintaining connectivity for critical smart devices.`
         },
         term: {
             title: 'Relevant terms and definitions',
-            content: `Device: A device refers to any physical entity that can connect to a network and participate in network communication.
-            Area: It specifies the geographical surface where a device may be physically located.
-            Max Age: Maximum age of the location information which is accepted for the location retrieval (in seconds).
-            Absence of maxAge means that "any age" is acceptable for the client. In other words, this is like maxAge=infinite. The system will return lastLocationTime in the response. If the system is not able to provide location, an  error 404 with code LOCATION_RETRIEVAL.DEVICE_NOT_FOUND is sent back.
-            maxAge=0 means that a fresh calculation is requested by the client. If the system is not able to provide the fresh location, an error 422 with code LOCATION_RETRIEVAL.UNABLE_TO_FULFILL_MAX_AGE is  sent back.
-            Last Location Time : Last date and time when the device was localized.`
+            content: `A Device refers to any physical entity capable of connecting to a network and requiring QoS optimization. Quality on Demand (QoD) is the ability to dynamically request specific network quality enhancements based on user needs. Latency represents the time delay in data transmission, which is critical for real-time applications. Bandwidth denotes the amount of data that can be transmitted over a network within a specific period. Priority level serves as a ranking mechanism that determines how network resources are allocated among different applications. Optimization Duration defines the period during which the requested network optimizations remain active, ensuring consistent performance improvements as needed.`
         },
         functionality: {
             title: "API Functionality",
-            content: `The API exposes a single endpoint/operation:
-            /retrieve : Retrieve where the device is localized. The operation returns:
-            a localization defined either as a circle, with the center specified by the latitude and longitude, and a radius for answer accuracy, or as  polygon defined by the array of points delimiting its boundary.
-            a timestamp with the location information freshness.`
+            content: `The API exposes a single primary endpoint: /request-qod allows the requester to specify the required network quality parameters for a given device or application. Request parameters include deviceId, a unique identifier of the device requesting QoD; latencyRequirement, the maximum acceptable latency in milliseconds; bandwidthRequirement, the minimum required bandwidth in Mbps; priorityLevel, indicating the priority level (e.g., high, medium, low); and duration, the time duration for which QoD is required. The response includes confirmation of the QoD request, expected network performance after optimization, and a timestamp indicating when optimization starts.`
         },
         authorization: {
             title: "Authorization and authentication",
-            content: `The "Camara Security and Interoperability Profile" provides details  on how a client requests an access token. Please refer to Identify and  Consent Management  (https://github.com/camaraproject/IdentityAndConsentManagement/) for the released version of the Profile.
-            Which specific authorization flows are to be used will be determined  during onboarding process, happening between the API Client and the API  Provider, taking into account the declared purpose for accessing the  API, while also being subject to the prevailing legal framework dictated by local legislation.
-            It is important to remark that in cases where personal user data is  processed by the API, and users can exercise their rights through  mechanisms such as opt-in and/or opt-out, the use of 3-legged access  tokens becomes mandatory. This measure ensures that the API remains in  strict compliance with user privacy preferences and regulatory  obligations, upholding the principles of transparency and user-centric  data control.`
+            content: `The "Camara Security and Interoperability Profile" outlines authentication mechanisms for API access. API consumers must obtain an access token through a secure authentication process. Authorization follows these principles: Three-legged OAuth (3-legged OAuth), used when user consent is required (e.g., user-specific QoD optimizations); Two-legged OAuth (2-legged OAuth), used for system-level requests where no specific user data is involved. access token validation, ensuring that API calls adhere to security policies; and user consent, required when QoD involves personal devices, with explicit user permission.`
         },
         indentify: {
             title: "Identifying a device from the access token",
-            content: `This specification defines the device object field as  optional in API requests, specifically in cases where the API is  accessed using a 3-legged access token, and the device can be uniquely  identified by the token. This approach simplifies API usage for API  consumers by relying on the device information associated with the  access token used to invoke the API.
-            Handling of device information:
-            Optional device object for 3-legged tokens:
-            When using a 3-legged access token, the device associated with the  access token must be considered as the device for the API request. This  means that the device object is not required in the request, and if  included it must identify the same device, therefore it is recommended NOT to include it in these scenarios to simplify the API usage and avoid additional validations.
-            Validation mechanism:
-            The server will extract the device identification from the access token, if available.
-            If the API request additionally includes a device  object when using a 3-legged access token, the API will validate that  the device identifier provided matches the one associated with the  access token.
-            If there is a mismatch, the API will respond with a 403 -  INVALID_TOKEN_CONTEXT error, indicating that the device information in  the request does not match the token.
-            Error handling for unidentifiable devices:
-            If the device object is not included in the request and the device information cannot be derived from the 3-legged access  token, the server will return a 422 UNIDENTIFIABLE_DEVICE error.
-            Restrictions for tokens without an associated authenticated identifier:
-            For scenarios which do not have a single device identifier  associated to the token during the authentication flow, e.g. 2-legged  access tokens, the device object MUST be provided in the  API request. This ensures that the device identification is explicit and valid for each API call made with these tokens.`
+            content: `The API supports optional device identification based on the access token. For 3-legged tokens, the device linked to the token is assumed to be the requester. If a device ID is provided, it must match the one associated with the token. For 2-legged tokens, the device ID must be explicitly provided in the request.`
         },
-        sandboxSwagger: "#"
+        sandboxSwagger: "/assets/images/quality-on-demand/openapi.json"
     },
     sandbox:{
         sandboxUrl: "#"
@@ -125,11 +110,13 @@ export const QUALITY_ON_DEMAND_API: Api={
             content:[
                 {
                     title: "Term 1",
-                    content: `This is term 1.`
+                    content: `Users must ensure that any data submitted through this API complies with applicable laws and regulations. 
+                    Unauthorized or malicious use of the API is strictly prohibited.`
                 },
                 {
                     title: "Term 2",
-                    content: `This is term 2.`
+                    content: `Access to this API is provided on an "as-is" basis. 
+                    The provider is not responsible for any data loss, service disruption, or unintended consequences resulting from its use.`
                 }
             ]
         },

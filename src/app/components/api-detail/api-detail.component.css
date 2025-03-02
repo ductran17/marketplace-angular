@@ -1,6 +1,7 @@
 .api-detail-container {
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr; /* 3 columns */
+  grid-template-columns: 1fr 4fr 1fr;
+  /* 3 columns */
   gap: 10px;
   min-height: calc(100vh - 200px);
   margin: 0;
@@ -12,7 +13,7 @@
     grid-column: 1;
     position: sticky;
     max-width: 200px;
-    top: 140px;
+    top: 80px;
     height: fit-content;
     padding-right: 14px;
     border-right: 1px solid #e5e7eb;
@@ -47,6 +48,7 @@
   .main-content {
     grid-column: 2;
     min-width: 60vw;
+
     h2 {
       font-size: 24px;
       font-weight: 600;
@@ -55,7 +57,7 @@
     }
   }
 
-  .content-section{
+  .content-section {
     h2 {
       font-size: 40px;
       font-weight: 600;
@@ -70,7 +72,7 @@
       color: #111827;
     }
   }
-  
+
 
   /* Right sidebar - Table of Contents */
   .table-of-contents {
@@ -302,8 +304,7 @@
   background-color: #f0f0f0;
 }
 
-Form
-.form-group {
+Form .form-group {
   margin-bottom: 20px;
 }
 
@@ -386,16 +387,18 @@ button[type="sandboxButton"]:disabled {
         display: flex;
         overflow-x: auto;
         padding-bottom: 8px;
-        
+
         li {
           white-space: nowrap;
           margin-right: 4px;
           flex-shrink: 0;
-          
+
           /* New styles for smaller size */
-          font-size: 14px; /* Adjust font size as needed */
-          padding: 4px 8px; /* Adjust padding for smaller buttons */
-          
+          font-size: 14px;
+          /* Adjust font size as needed */
+          padding: 4px 8px;
+          /* Adjust padding for smaller buttons */
+
           &:last-child {
             margin-right: 0;
           }

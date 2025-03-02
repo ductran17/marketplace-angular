@@ -19,9 +19,9 @@ export {DEDICATED_NETWORKS} from './dedicated-networks';
 
 export const API_LIST = {
     DEVICE_LOCATION: '/api/device-location',
+    QUALITY_ON_DEMAND: '/api/quality-on-demand',
     DEVICE_REACHABILITY: '/api/device-reachability',
     NUMBER_VERIFICATION: '/api/number-verification',
-    QUALITY_ON_DEMAND: '/api/quality-on-demand',
     SIM_SWAP: '/api/sim-swap',
     DEVICE_ROAMING_STATUS: '/api/device-roaming-status',
     DEVICE_IDENTIFIER: '/api/device-identifier',

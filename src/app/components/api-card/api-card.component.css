@@ -61,7 +61,8 @@ div.content {
 }
 
 .beta,
-.alpha {
+.alpha,
+.ready {
   border: 2px solid green;
   color: green;
 }

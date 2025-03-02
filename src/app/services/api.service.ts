@@ -8,9 +8,9 @@ import * as ApiModels from '../models';
 export class ApiService {
   private apis = [
     ApiModels.DEVICE_LOCATION_API,
+    ApiModels.QUALITY_ON_DEMAND_API,
     ApiModels.DEVICE_REACHABILITY_STATUS_API,
     ApiModels.NUMBER_VERIFICATION_API,
-    ApiModels.QUALITY_ON_DEMAND_API,
     ApiModels.SIM_SWAP_API,
     ApiModels.DEVICE_ROAMING_STATUS,
     ApiModels.DEVICE_IDENTIFIER,

@@ -16,6 +16,7 @@ export class ApiCardComponent {
   getStatusClass(status: string) {
     switch (status?.toLowerCase()) {
       case "in development": return "in-development";
+      case "ready": return "ready";
       case "beta": return "beta";
       case "alpha": return "alpha";
       case "available": return "available";
